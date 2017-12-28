@@ -1,0 +1,672 @@
+.manage-page{
+    width: 100%;
+    height: 100%;
+    background: #e9e9e9;
+}
+
+
+
+/*<!-- develop by ngocbich85hd 16/10/2017 -->*/
+.popAll {
+    font-family: Arial !important;
+    font-size: 14px;
+}
+
+.popAll .modal-lg {
+    width: 980px;
+}
+
+.popAll .table-responsive {
+    width: 100%;
+}
+
+.popAll .modal-header {
+    padding: 11px 15px 7px 15px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 16px;
+    font-weight: bold;
+    background: #f4f4f4;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.popAll .modal-header .modal-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.popAll .modal-header .close {
+    margin-top: 3px;
+}
+
+.popAll .buttonSearch_pop {
+    position: relative;
+    background-color: #4267b2;
+    border: none;
+    font-size: 15px;
+    border-radius: 4px;
+    margin-left: 10px;
+    color: #FFFFFF;
+    padding: 5px;
+    width: 85px;
+    height: 34px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.popAll .selectBox_brand {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.popAll .selectBox_brand .form-control {
+    width: 30%;
+    display: block;
+    float: left;
+    text-align: left;
+}
+
+.tableListSp {
+    margin-top: 15px;
+    border-top: 1px solid #ddd;
+    max-height: 515px;
+    min-height: 515px;
+}
+
+.tableListSp .img-thumbnail {
+    max-width: 100%;
+    max-height: 40px;
+    padding: 0px;
+    border: 0px solid #ddd;
+    border-radius: 0px;
+
+}
+
+.tableListSp .form-group, .tableListSp .form-control {
+    margin-bottom: 0px;
+    margin-top: 3px;
+}
+
+.tableListSp .table > tbody > tr > td, .tableListSp .table > tbody > tr > th,
+.tableListSp .table > tfoot > tr > td, .tableListSp .table > tfoot > tr > th, .tableListSp .table > thead > tr > td, .table > thead > tr > th {
+    padding: 5px;
+    line-height: 40px;
+    vertical-align: top;
+    border-top: 0px solid #ddd;
+}
+
+.tableListSp .table > tbody > tr {
+    border-bottom: 1px solid #ddd;
+}
+
+/*=================*/
+.tableListSp-none {
+    width: 100%;
+    text-align: center;
+    max-height: 515px;
+    min-height: 515px;
+    padding-top: 11%;
+}
+
+.tableListSp-none h2 {
+    font-size: 24px;
+    color: #888;
+}
+
+.tableListSp-none p {
+    font-size: 15px;
+    color: #888;
+}
+
+.tableListSp-none p a {
+    font-size: 15px;
+    color: #4267b2;
+    font-weight: bold;
+    display: inline-table;
+}
+
+.tableListSp-none p a:hover {
+    color: #f05f40;
+}
+
+.tableListSp-none p a span {
+    background: url("../images/icon-QL-Shop.png") top center no-repeat;
+    width: 26px;
+    display: inline-block;
+    height: 25px;
+    float: left;
+    margin-right: 5px;
+    margin-left: 10px;
+    margin-top: -3px;
+}
+
+.tableListSp-none p a:hover span {
+    background: url("../images/icon-QL-Shop1.png") top center no-repeat;
+    width: 26px;
+    display: inline-block;
+    height: 25px;
+    float: left;
+    margin-right: 5px;
+    margin-left: 10px;
+    margin-top: -3px;
+}
+
+.btn-addSPnew {
+    background: #4267b2;
+    padding: 6px 29px;
+    border-radius: 6px;
+}
+
+.btn-addSPnew span {
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 44px;
+    float: left;
+}
+
+.btn-addSPnew i {
+    background: url("../images/iconCartAdd.png") top center no-repeat;
+    width: 35px;
+    height: 28px;
+    display: inline-block;
+    margin-top: 7px;
+    margin-right: 10px;
+    float: left;
+}
+
+.btn-addSPnew:hover {
+    background: #f05f40;
+}
+
+
+.product-modal {
+    font-size: 14px;
+}
+
+.product-modal .modal-body .left-modal {
+    width: 50%;
+    padding: 10px 25px 15px 0px;
+    float: left;
+    display: inline-block;
+}
+
+.product-modal .modal-body .right-modal {
+    width: 50%;
+    padding: 0px 0px 15px 0px;
+    position: relative;
+    float: right;
+}
+
+.product-modal .product-title {
+    padding: 2px 2px 10px 2px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 30px;
+    float: left;
+    width: 100%;
+}
+
+.product-modal .form-group {
+    padding: 0px 0 5px 0px;
+    display: inline-block;
+    width: 100%;
+    line-height: 30px;
+    margin-bottom: 5px;
+    position: relative;
+    float: left;
+}
+
+.product-modal .form-group label {
+    float: left;
+    width: 28%;
+    font-weight: normal;
+    text-align: right;
+    line-height: 30px;
+    padding-top: 5px;
+    position: relative;
+    padding-right: 10px;
+    font-size: 14px;
+}
+
+.product-modal .form-group input {
+    width: 70%;
+    float: left;
+    padding: 6px 15px 6px 30px;
+}
+
+.product-modal .form-group .selectbox-Sp {
+    width: 70%;
+    position: relative;
+    float: left;
+}
+
+.product-modal .selectbox-Sp .form-control {
+    width: 100%;
+    float: left;
+}
+
+.product-modal .modal-footer {
+    border: none;
+}
+
+.product-modal .btnSelect {
+    width: 100%;
+    margin-left: 20px;
+}
+
+.product-modal .btn-square button.plus-btn {
+    background: #fff;
+    border-top: #d1d1d1 0px solid;
+    border-right: #d1d1d1 0px solid;
+    border-left: #d1d1d1 1px solid;
+    border-bottom: #d1d1d1 0px solid;
+    font-size: 24px;
+    color: #999;
+    padding: 5px 8px 5px 8px;
+    line-height: 22px;
+    top: 1px;
+    float: right;
+    position: absolute;
+    text-align: center;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 0px;
+    right: 2px;
+}
+
+.product-modal .btn-square button.plus-btn:hover {
+    background: #4267b2;
+    border: #4267b2 1px solid;
+    color: #fff;
+}
+
+.product-modal input.price-input {
+    text-align: right;
+    width: 35%;
+    float: left;
+}
+
+.product-modal .price-form {
+    float: right;
+}
+
+.product-modal .price-form span {
+    background: #337ab7;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    padding: 0px 5px;
+    line-height: 20px;
+    float: right;
+    border-radius: 4px;
+    margin: 5px 0 5px 5px;
+}
+
+.product-modal .l_half_form {
+    width: 60%;
+    float: left;
+}
+
+.product-modal .l_half_form label {
+    width: 42%;
+}
+
+.product-modal .l_half_form input {
+    text-align: right;
+    width: 58%;
+}
+
+.product-modal .r_half_form {
+    width: 40%;
+    padding: 10px 0 10px 10px;
+}
+
+.product-modal .r_half_form label {
+    width: 40%;
+}
+
+.product-modal .r_half_form input {
+    width: 60%;
+    text-align: right;
+}
+
+.product-modal article {
+    position: relative;
+}
+
+.product-modal article input {
+    opacity: 0;
+    top: 2px;
+    right: 0;
+    position: absolute;
+    padding: 5px;
+}
+
+.product-modal article span {
+    background: #f2f2f2;
+    padding: 7px;
+    color: #a0a0a0;
+    width: 70%;
+    border-radius: 4px;
+    border: 1px dashed #d1d1d1;
+    position: absolute;
+}
+
+.product-modal article span i {
+    font-size: 25px;
+    padding: 0 10px 0 0;
+    vertical-align: middle;
+    color: #999999;
+}
+
+.product-modal article output {
+    width: 100%;
+    position: relative;
+    top: 15px;
+    overflow: auto;
+}
+
+.product-modal #result .thumbnail {
+    width: 53px;
+    height: 53px;
+    float: left;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.product-modal .list-properties {
+    background: #f2f2f2;
+    border: 1px solid #d1d1d1;
+}
+
+.product-modal .list-properties .list-ul-items {
+    width: 100%;
+    padding: 3px 0;
+    border-bottom: solid 1px #d1d1d1;
+    line-height: 30px;
+    font-size: 15px;
+    margin: 0;
+}
+
+.product-modal .list-properties .list-ul-items span {
+    padding: 0 17px;
+}
+
+.product-modal .list-properties .list-ul-items i {
+    float: right;
+    color: #666666;
+    padding-right: 17px;
+    padding-top: 9px;
+}
+
+.product-modal .list-properties .list-ul-items ul.lst-items {
+    display: none;
+    list-style: none;
+    padding: 0;
+    background: #fff;
+    color: #7D7D7D;
+    margin-bottom: -3px;
+}
+
+.product-modal .list-properties .list-ul-items ul.lst-items li {
+    padding: 0 17px;
+    border-bottom: none;
+}
+
+.product-modal .modal-footer button {
+    padding: 7px 25px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 16px;
+    text-transform: none;
+    color: #666666;
+}
+
+.product-modal .modal-footer .btn-success {
+    color: #fff;
+    background: #4267b2;
+    border-color: #29487d;
+}
+
+.product-modal .modal-footer button span {
+    padding-right: 5px;
+}
+
+.product-modal .modal-body form {
+    display: block;
+}
+
+.product-modal form label {
+    width: 100%;
+    font-size: 15px;
+    line-height: 30px;
+    color: #111111;
+    font-weight: normal;
+    font-weight: bold;
+}
+
+.form-group .col-form-label .help.icon {
+    top: 3px;
+}
+
+.form-group .col-form-label .help.icon {
+    position: absolute;
+    right: -32px;
+    top: 3px;
+    z-index: 1;
+    font-size: 18px;
+}
+
+.help {
+    color: #c8c8c8;
+    width: 24px;
+}
+
+.form-group .col-form-label .icon {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    height: 28px;
+    width: 32px;
+    border: 1px solid transparent;
+    text-align: center;
+    line-height: 28px;
+    font-size: 16px;
+}
+
+.err_msg2,.err_msg {
+    color: #f15a2b;
+    float: right;
+    position: absolute;
+    top: 8px;
+    right: -5px;
+    font-size: 20px;
+}
+
+.product-modal .btn-square button.plus-btn {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    right: 1px;
+}
+
+.product-modal .btn-square button.plus-btn {
+    background: #fff;
+    border-top: #d1d1d1 0px solid;
+    border-right: #d1d1d1 0px solid;
+    border-left: #d1d1d1 1px solid;
+    border-bottom: #d1d1d1 0px solid;
+    font-size: 24px;
+    color: #999;
+    padding: 5px 8px 5px 8px;
+    line-height: 22px;
+    top: 1px;
+    float: right;
+    position: absolute;
+    text-align: center;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 0px;
+    right: 2px;
+}
+
+.plus-btn {
+    position: absolute;
+    top: 1px;
+    right: 16px;
+    height: 32px;
+    width: 34px;
+    border: 0px;
+    font-size: 21px;
+}
+
+.product-modal .btn-square button.plus-btn:hover {
+    border: #337ab7 0px solid !important;
+}
+
+.product-modal .btn-square button.plus-btn:hover {
+    background: #337ab7;
+    border: #337ab7 1px solid;
+    color: #fff;
+}
+
+.add-product {
+    width: 100%;
+    position: relative;
+    max-height: 562px;
+    min-height: 562px;
+    display: flex;
+}
+
+.product-modal .modal-footer {
+    border-top: 1px solid #e5e5e5;
+}
+.stepaddSP a {
+    border: 1px solid #ddd;
+    padding: 10px 20px 10px 10px;
+    color: #666;
+    font-size: 15px;
+    background: #f7f7f7;
+    float: left;
+    position: relative;
+}
+
+.stepaddSP a:not(:first-child) {
+    padding: 10px 20px 10px 30px;
+}
+
+.stepaddSP a .noHover {
+   cursor: none;
+
+}
+
+.stepaddSP a:before {
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+    border-left: 20px solid #ddd;
+    position: absolute;
+    top: 0px;
+    right: -21px;
+    z-index: 2;
+    content: "";
+}
+.stepaddSP a:after {
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+    border-left: 20px solid #f7f7f7;
+    position: absolute;
+    top: 0px;
+    right: -20px;
+    z-index: 3;
+    content: "";
+}
+.stepaddSP a.active {
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 15px;
+    background: #4267b2;
+    font-weight: bold;
+    float: left;
+}
+
+.stepaddSP a span {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    background: #f7f7f7;
+    padding: 5px 10px;
+    color: #666;
+    font-size: 15px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 24px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+}
+.popAll .stepaddSP {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    float: left;
+    width: 100%;
+}
+.stepaddSP a.active span{
+    font-weight: bold;
+    color: #4267b2;
+}
+.product-modal textarea {
+    border: 1px solid #ccc;
+}
+.stepaddSP a.active:after {
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+    border-left: 20px solid #4267b2;
+    position: absolute;
+    top: 0px;
+    right: -20px;
+    z-index: 3;
+    content: "";
+}
+.popAll .modal-body {
+    display: inline-block;
+    width: 100%;
+}
+#addLable .modal-body{
+    padding: 25px 0 5px 0px;
+}
+
+@media screen and (max-height: 850px) {
+  	.pageFane section{
+		padding: 5px 0;
+	}
+	.signin-layout .signin-box .shop-manager{
+		margin-top: 80px;
+	}
+	.signin-layout .signin-box .list-pages-scroll{
+		height: 200px;
+	}
+}
+@media screen and (max-height: 720px) {
+	.pageFane section{
+		padding: 0px 0;
+	}
+	.signin-layout .signin-box .shop-manager {
+	    margin-top: 55px;
+	}
+	.signin-layout .signin-box .list-pages-scroll{
+		height: 150px;
+	}
+	
+}
+
+.txtVideoGuide:hover {
+	text-decoration: underline;
+}

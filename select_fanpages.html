@@ -1,0 +1,361 @@
+<!-- develop by ngocbich85hd -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>FSALE - Quản lý bán hàng</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/css/stylePopSP.css">
+    <link rel="stylesheet" href="dist/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="dist/css/style01.css">
+    <link rel="stylesheet" type="text/css" href="Content/angular-material.css">
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body id="page-top" class="pageFane">
+    <div id="FSaleApp">
+      <div>
+        <section id="services" class="services">
+          <div class="container signin-layout shop">
+            <div class="row">
+              <!--<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>-->
+              <div class="col-sm-12 col-xs-12 signin-box">
+                <div class="title">
+                  <h2>Chọn các Fanpages</h2>
+                  <em>(Hỗ trợ quản lý nhiều Fanpage cùng lúc)</em>
+                </div>
+                <div class="has-pages shop-manager clearfix">
+                  <div class="list-pages">
+                    <!-- ngIf: ui.fanpages -->
+                    <div class="user-info">
+                      <div class="avata">
+                        <img src='dist/img/user_avt.jpg' class="img-rounded">
+                      </div>
+                      <div class="info">
+                        <h3 class="ellipsis">Lê Huân (374043163044305)</h3>
+                        <a href="/extend-and-coupon.html" class="extend">Gia hạn</a>
+                        <a href="/logout.html" class="logout">Đăng xuất</a>
+                        <div class="info-qtv">
+                          <p>1 fanpage đã kích hoạt</p>
+                          <p>1 nhân viên</p>
+                        </div>
+                      </div>
+                    </div>
+                    <ul class="list-qtv">
+                      <li><a href="#"><img src="dist/img/user_avt.jpg"></a></li>
+                      <li class="more"><a href="#"><i class="ion-ios-plus-empty"></i></a></li>
+                    </ul>
+                    <div class="content-pages">
+                      <div class="clearfix"></div>
+                      <p style="color:#f05f40;margin:0;padding:0;cursor:pointer;font-size:12px;" data-toggle="modal" data-target="#guidanceModal"><b class="txtVideoGuide">Xem Video cách để thêm nhiều nhân viên quản trị.</b></p>
+                      <div class="clearfix"></div>
+                      <p style="color:red">{{ err_message }}</p>
+                      <p style="color:red">Shop của bạn đã bị hết hạn, vui lòng gia hạn để có thể tiếp tục sử dụng dịch vụ. <a href='/extend.html' target='_blank'>Click vào đây</a> để đến trang gia hạn</p>
+                      <div class="checkbox c-check" style="border-bottom:1px solid #bbb;padding:5px 0;margin-bottom:0;margin-top:0px;">
+                        <input id="fAll" type="checkbox" aria-invalid="false">
+                        <label for="fAll">Chọn tất cả trang đã kích hoạt</label>
+                      </div>
+                      <!-- end ngIf: ui.fanpages -->
+                      <div class="list-pages-scroll">
+                        <div class="checkbox c-check">
+                          <button type="button" class="btn btn-kichhoat btn-lg">
+                          Kích hoạt
+                          </button>
+                          <span class="status">
+                            <md-switch class="md-primary" aria-label="Kích hoạt" style="margin:0;">
+                            </md-switch>
+                          </span>
+                          <input id="page_id" type="checkbox">
+                          <label class="ellipsis" for="page_id">
+                          Tôi là ai, đây là đâu ?
+                          <i href="#" class="fa fa-exclamation-triangle red-tooltip" tooltip-placement="bottom" uib-tooltip="Chọn page active"></i>
+                          </label>
+                          <!-- Hiển thị nếu ds quản trị viên > 8 -->
+                          <!-- <ul class="list-qtv small">
+                            <li><a href="#"><img src="dist/img/user_avt.jpg" alt="Huân Lê"></a></li>
+                            <li class="more"><a href="#"><i class="ion-ios-more"></i></a></li>
+                          </ul> -->
+                        </div>
+                      </div>
+                      <span class="btn btn-fb btn-select-page" role="button" tabindex="0">
+                      <i class="fa fa-sign-in"></i> Truy cập
+                      </span>
+                    </div>
+                  </div>
+                  <div class="list-pages">
+                    <!-- ngIf: ui.fanpages -->
+                    <h4 class="title">Shop được ủy quyền</h4>
+                    <ul class="list-qtv large">
+                      <li data-toggle="tooltip" data-placement="bottom" title="{{ shop.ShopName }}"><a href="javascript:;"><img src="dist/img/user_avt.jpg"></a></li>
+                    </ul>
+                    <div style="margin:10px 13px 10px 0px;display:block;width:100%;float:left;height:60px;padding-left:13px;">
+                      <p style="margin:20px 0px 20px 0px;">Bạn chưa có cửa hàng nào ủy quyền</p>
+                    </div>
+                    <div class="content-pages">
+                      <div class="clearfix"></div>
+                      <p style="color:#4267b2;margin:0;padding:0;">&nbsp;</p>
+                      <div class="clearfix"></div>
+                      <p style="color:red">{{ err_expired }}</p>
+                      <div class="checkbox c-check" style="border-bottom:1px solid #bbb;padding:5px 0;margin-bottom:0;margin-top:0px;">
+                        <input id="fAllAuthorized" type="checkbox" aria-invalid="false">
+                        <label for="fAllAuthorized">Chọn tất cả trang đã kích hoạt</label>
+                      </div>
+                      <!-- end ngIf: ui.fanpages -->
+                      <div class="list-pages-scroll">
+                        <div class="checkbox c-check">
+                          <span class="status">
+                            <md-switch class="md-primary" aria-label="Kích hoạt" style="margin:0;">
+                            </md-switch>
+                          </span>
+                          <input id="g_page" type="checkbox">
+                          <label class="ellipsis" for="g_page">
+                          {{ page.name }}
+                          <i href="#" class="fa fa-exclamation-triangle red-tooltip" tooltip-placement="bottom" uib-tooltip="Không có quyền"></i>
+                          </label>
+                        </div>
+                      </div>
+                      <span class="btn btn-fb btn-select-page" role="button" tabindex="0">
+                      <i class="fa fa-sign-in"></i> Truy cập
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="copyright col-lg-9 col-md-9 col-sm-12 col-xs-12 right">
+                2017 © CRM by <a href="#" target="_blank">huanlv</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div id="guidanceModal" class="modal fade popAll add-user" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content" style="margin:0;padding:0;">
+              <div class="modal-body" style="margin:0;padding:0;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:white;opacity:1;">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                <iframe width="100%" height="510" src="https://www.youtube.com/embed/maHc4NIG0Eg?autoplay=false" frameborder="0" allowfullscreen></iframe>
+                <div class="clearfix"></div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+        <div id="downloadContentModal" class="modal fade popupLogin myKichHoat" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title">Kích hoạt fanpages</h3>
+              </div>
+              <div class="modal-body">
+                <h3>Lấy tin nhắn và bình luận</h3>
+                <em style="font-size:12px;">{{ate }}</em>
+                <div style="padding-left: 50px;margin-top: 10px;">
+                  <b>Chọn thời gian lấy tin nhắn và bình luận về</b>
+                  <div class="radio c-radio">
+                    <input name="time-load" style="margin-left:6px;" id="time0" value="0" type="radio">
+                    <label for="time0">1 ngày</label>
+                  </div>
+                  <div class="radio c-radio">
+                    <input name="time-load" style="margin-left:6px;" value="3" type="radio">
+                    <label for="time1">abcbs</label>
+                  </div>
+                  <div class="radio c-radio">
+                    <input name="time-load" style="margin-left:6px;" value="5" type="radio">
+                    <label for="time2">abcbs</label>
+                  </div>
+                  <div class="radio c-radio">
+                    <input name="time-load" style="margin-left:6px;" value="7" type="radio">
+                    <label for="time3">abcbs</label>
+                  </div>
+                  <div class="radio c-radio">
+                    <input name="time-load" style="margin-left:6px;" value="30" type="radio">
+                    <label for="time5">abc abc</label>
+                  </div>
+                  <div class="radio c-radio">
+                    <input name="time-load" style="margin-left:6px;" value="60" type="radio">
+                    <label for="time6">abc abc</label>
+                  </div>
+                  <div class="radio c-radio">
+                    <input name="time-load" style="margin-left:6px;" value="90" type="radio">
+                    <label for="time7">abc abc</label>
+                  </div>
+                  <div class="radio c-radio">
+                    <input name="time-load" style="margin-left:6px;" id="time8" value="365" type="radio">
+                    <label for="time8">12 tháng</label>
+                  </div>
+                </div>
+                <div class="barMaster left w100pt">
+                  <div class="item-barMaster left w100pt">
+                    <label>{{ 'select_page.active' | translate }}</label>
+                    <div class="cssProgress">
+                      <div class="progress3">
+                        <div class="cssProgress-bar cssProgress-bar cssProgress-active" data-percent="{{ progress }}" style="width: {{ progress }}%;">
+                          <span class="cssProgress-label">{{ progress }}%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-barMaster left w100pt">
+                    <label>Tải comment và message <i class="fa fa-refresh"></i></label>
+                    <div class="cssProgress">
+                      <div class="progress3">
+                        <div class="cssProgress-bar cssProgress-bar cssProgress-active" data-percent="50" style="width: 50%;">
+                          <span class="cssProgress-label">50%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-fb btn-sm">
+                <i class="fa fa-registered"></i> {{ 'select_page.active' }}
+                </button>
+                <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">
+                <i></i> {{ 'common.close' }}
+                </button>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+        <div id="InviteCodeModal" class="modal fade popAll add-user" role="dialog">
+          <div class="modal-sm modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><span class="fa fa-user"></span>Thêm nhân viên mới</h4>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="themtv">Link mời tham gia : </label>  
+                    <b style="line-height:34px;cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Click để copy">{{ InviteLink }}</b>                                  
+                  </div>
+                  <div class="form-group">
+                    <p style="float:left;"><b style="color:red;">Bạn đã sử dụng hết số nhân viên trong shop của bạn : {{ TotalEmployee }} / {{ MaxEmployee }}</b></p>
+                    <p style="float:left;">Số nhân viên hiện tại trong shop của bạn : <b style="color:red;">{{ TotalEmployee }}</b> / <b style="color:red;">{{ MaxEmployee }}</b></p>
+                    <p style="float:left;">Copy link bên trên và gửi cho nhân viên bạn muốn mời tham gia cửa hàng</p>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-ban"></span>Đóng</button>
+                <button type="button" class="btn btn-success"><span class="fa fa-save"></span>Làm mới</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="CreateEmployeeModal" class="modal fade popAll add-user" role="dialog">
+          <div class="modal-sm modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><span class="fa fa-user"></span>Thêm thành viên</h4>
+              </div>
+              <div class="modal-body">
+                <form id="frmAddEmployee" name="frmAddEmployee">
+                  <div class="form-group">
+                    <label for="themtv">Tên thành viên</label>
+                    <input type="text" placeholder="Tên thành viên">
+                  </div>
+                  <div class="form-group">
+                    <label for="themtv">Email</label>
+                    <input type="text" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <label for="themtv">Mật khẩu</label>
+                    <input type="password" placeholder="Mật khẩu">
+                  </div>
+                  <div class="form-group">
+                    <label for="themtv">Tên thành viên</label>
+                    <input type="text" placeholder="ID Facebook">
+                  </div>
+                  <div class="form-group">
+                    <label>Chọn page</label>
+                    <select required>
+                      <option value="-1">-- Chọn quyền --</option>
+                      <option value="Sale">Bán Hàng</option>
+                      <option value="Manager">Quản lý</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Chọn chi nhánh</label>
+                    <select id="ddlBranch" required>
+                      <option value="-1">-- {{'branch.select_brach_name' | translate}} --</option>
+                      <!-- ngRepeat: branch in branches -->
+                      <option>
+                        {{ branch.BranchName }}
+                      </option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-ban"></span>Hủy</button>
+                <button type="button" class="btn btn-success"><span class="fa fa-save"></span>Lưu</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="AssignPageModal" class="modal fade popAll list-user" role="dialog">
+          <div class="modal-lg modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><span class="fa fa-users"></span>Danh sách quản trị viên</h4>
+              </div>
+              <div class="modal-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Danh sách Page</th>
+                        <th><a href="#"><img src="dist/img/user_avt.jpg" alt=""><span>Huân Lê</span></a></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><a href="#">{{ PageName }}</a></td>
+                        <td>
+                          <input type="checkbox"><label></label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-ban"></span>Hủy</button>
+                <button type="button" class="btn btn-success"><span class="fa fa-save"></span>Lưu</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="dist/js/jquery.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="dist/js/jquery.easing.min.js"></script>
+    <script src="dist/js/wow.min.js"></script>
+    <script src="dist/js/common.js"></script>
+    <script>
+      $(document).ready(function () {
+          $('#guidanceModal').on('hidden.bs.modal', function () {
+              var $this = $(this).find('iframe'),
+                  tempSrc = $this.attr('src');
+              $this.attr('src', "");
+              $this.attr('src', tempSrc);
+          });
+      });
+    </script>
+  </body>
+</html>
