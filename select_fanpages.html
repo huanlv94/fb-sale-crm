@@ -153,36 +153,36 @@
               </div>
               <div class="modal-body">
                 <h3>Lấy tin nhắn và bình luận</h3>
-                <em style="font-size:12px;">{{ate }}</em>
+                <em style="font-size:12px;">(Việc này có thể bỏ qua nếu bạn không muốn lấy dữ liệu cũ.)</em>
                 <div style="padding-left: 50px;margin-top: 10px;">
                   <b>Chọn thời gian lấy tin nhắn và bình luận về</b>
                   <div class="radio c-radio">
                     <input name="time-load" style="margin-left:6px;" id="time0" value="0" type="radio">
-                    <label for="time0">1 ngày</label>
+                    <label for="time0">Không tải dữ liệu</label>
                   </div>
                   <div class="radio c-radio">
                     <input name="time-load" style="margin-left:6px;" value="3" type="radio">
-                    <label for="time1">abcbs</label>
+                    <label for="time1">3 Ngày trước</label>
                   </div>
                   <div class="radio c-radio">
                     <input name="time-load" style="margin-left:6px;" value="5" type="radio">
-                    <label for="time2">abcbs</label>
+                    <label for="time2">7 Ngày trước</label>
                   </div>
                   <div class="radio c-radio">
                     <input name="time-load" style="margin-left:6px;" value="7" type="radio">
-                    <label for="time3">abcbs</label>
+                    <label for="time3">1 Tháng trước</label>
                   </div>
                   <div class="radio c-radio">
                     <input name="time-load" style="margin-left:6px;" value="30" type="radio">
-                    <label for="time5">abc abc</label>
+                    <label for="time5">2 Tháng trước</label>
                   </div>
                   <div class="radio c-radio">
                     <input name="time-load" style="margin-left:6px;" value="60" type="radio">
-                    <label for="time6">abc abc</label>
+                    <label for="time6">3 Tháng trước</label>
                   </div>
                   <div class="radio c-radio">
                     <input name="time-load" style="margin-left:6px;" value="90" type="radio">
-                    <label for="time7">abc abc</label>
+                    <label for="time7">6 Tháng trước</label>
                   </div>
                   <div class="radio c-radio">
                     <input name="time-load" style="margin-left:6px;" id="time8" value="365" type="radio">
@@ -191,11 +191,11 @@
                 </div>
                 <div class="barMaster left w100pt">
                   <div class="item-barMaster left w100pt">
-                    <label>{{ 'select_page.active' | translate }}</label>
+                    <label>Kích hoạt</label>
                     <div class="cssProgress">
                       <div class="progress3">
-                        <div class="cssProgress-bar cssProgress-bar cssProgress-active" data-percent="{{ progress }}" style="width: {{ progress }}%;">
-                          <span class="cssProgress-label">{{ progress }}%</span>
+                        <div class="cssProgress-bar cssProgress-bar cssProgress-active" data-percent="50" style="width: 50%;">
+                          <span class="cssProgress-label">50%</span>
                         </div>
                       </div>
                     </div>
@@ -214,10 +214,10 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-fb btn-sm">
-                <i class="fa fa-registered"></i> {{ 'select_page.active' }}
+                <i class="fa fa-registered"></i> Kích hoạt
                 </button>
                 <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">
-                <i></i> {{ 'common.close' }}
+                <i></i> Đóng
                 </button>
               </div>
               <div class="clearfix"></div>

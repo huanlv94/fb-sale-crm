@@ -1,0 +1,1504 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link href="img/favicon.png" rel="Page.fsalse icon" type="image/vnd.microsoft.icon">
+    <link rel="stylesheet" href="css/chat-home.css">
+    <link rel="stylesheet" href="../dist/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+  </head>
+  <body class="fontLoaded">
+    <div id="app">
+      <div data-reactroot="">
+        <div hidden="" class="ksLelg">
+          <div class="huNjlq" style="width: 0%;"></div>
+        </div>
+        <div class="iSAsYv">
+          <div>
+            <div class="css-cs9jnn"><span></span></div>
+            <audio id="sound">
+              <source src="audio/chat.mp3" type="audio/mp3">
+            </audio>
+            <div class="fb-view sc-main ng-scope" data-ng-controller="ConversationCtrl">
+              <div>
+                <div id="addProductStep" class="modal fade popAll product-modal" role="dialog" style="display: none;">
+                  <div class="modal-lg modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <h4 class="modal-title">Thêm sản phẩm</h4>
+                      </div>
+                      <div class="modal-body ">
+                        <div class="stepaddSP">
+                          <a class="active">
+                            <span>1</span><!-- react-text: 26 -->Tạo sản phẩm<!-- /react-text -->
+                          </a>
+                          <a class="de">
+                            <span>2</span><!-- react-text: 29 -->Nhập hàng<!-- /react-text -->
+                          </a>
+                        </div>
+                        <div class="add-product" name="form.frmAddProduct">
+                          <div class="left-modal">
+                            <div class="product-title ng-binding">Thông tin cơ bản</div>
+                            <div class="form-group row">
+                              <label for="input" class="col-form-label ng-binding">
+                                <!-- react-text: 35 -->Mã sản phẩm<!-- /react-text --><a tabindex="-1" class="help icon" data-toggle="tooltip" data-placement="right" title="Mã hàng hóa là thông tin duy nhất"><i data-selector="true" class="fa fa-info-circle"></i></a>
+                              </label>
+                              <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" id="input0" placeholder="Mã hàng tự động" aria-invalid="false" value="SP000001" style="text-align: left; padding-left: 32px;">
+                            </div>
+                            <div class="form-group row"><label for="input" class="col-form-label ng-binding">Tên hàng hóa</label><input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" id="input1" placeholder="Nhập tên hàng hóa" required="" aria-invalid="true" style="text-align: left; padding-left: 15px;"><span class="err_msg2" aria-hidden="false">*</span></div>
+                            <div class="form-group row btn-square">
+                              <label class="col-form-label ng-binding">Nhóm hàng</label>
+                              <div class="selectbox-Sp left">
+                                <select name="CategoryId" id="CategoryId" class="form-control ng-pristine ng-untouched ng-not-empty ng-valid-required ng-invalid ng-invalid-pattern" required="" aria-invalid="true" style="text-align: left;">
+                                  <!-- react-text: 47 -->&gt;<!-- /react-text -->
+                                  <option value="-1">Chọn nhóm hàng</option>
+                                </select>
+                                <button class="plus-btn" data-target="#addGroupProduct" data-toggle="modal"> +</button>
+                              </div>
+                              <span class="err_msg2" aria-hidden="false">*</span>
+                            </div>
+                            <div class="form-group row btn-square">
+                              <label class="col-form-label ng-binding">Nhãn hiệu</label>
+                              <div class="selectbox-Sp left">
+                                <select name="CategoryId" id="CategoryId" class="form-control ng-pristine ng-untouched ng-not-empty ng-valid-required ng-invalid ng-invalid-pattern" required="" aria-invalid="true" style="text-align: left;">
+                                  <!-- react-text: 55 -->&gt;<!-- /react-text -->
+                                  <option value="-1">Chọn nhãn hiệu</option>
+                                </select>
+                                <button class="plus-btn" data-target="#addBrand" data-toggle="modal">+</button>
+                              </div>
+                              <span class="err_msg2" aria-hidden="false">*</span>
+                            </div>
+                            <div class="form-group row"><label for="input" class="col-form-label ng-binding">Giá bán (VNĐ):</label><input type="text" value="0" class="form-control autoNumeric input-sm" data-cleave-ignore="0,[object Object],,function (t){var n=&quot;&quot;===t.target.value?0:parseInt((0,w.convertStr2Number)(String(t.target.value)));e.setState({Price:parseInt(n)})},," style="text-align: right;"><span class="err_msg2" aria-hidden="false">*</span></div>
+                            <div class="form-group row">
+                              <label for="input" class="col-form-label ng-binding">Ảnh sản phẩm </label>
+                              <article>
+                                <span class="ng-binding">
+                                  <i class="fa fa-camera"></i><!-- react-text: 68 -->Nhập ảnh sản phẩm (tỉ lệ 1 : 1)<!-- /react-text -->
+                                </span>
+                                <input type="file" multiple="" accept="image/*">
+                                <output id="result">
+                                  <productimage>
+                                    <image src=""></image>
+                                  </productimage>
+                                </output>
+                              </article>
+                            </div>
+                          </div>
+                          <div class="right-modal">
+                            <div class="form-group row" style="padding-bottom: 0px;"><label class="ng-binding" style="width: 100%; text-align: left; padding-top: 40px;">Mô tả chung cho sản phẩm</label><textarea name="textarea" rows="9" class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false" style="width: 98%; max-height: 210px;"></textarea></div>
+                            <div class="form-group row" style="padding-bottom: 0px;">
+                              <label for="input" class="col-form-label ng-binding">Đơn vị cơ bản</label><input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" placeholder="Giá trị" required="" aria-invalid="true" style="text-align: left; padding-left: 5px;">
+                              <p class="txt-dv text-right ng-binding">Đơn vị của hàng hóa như: hộp, lốc, thùng..</p>
+                              <span class="err_msg2" aria-hidden="false">*</span>
+                            </div>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button id="closeAddProduct" type="button" class="btn btn-default" data-dismiss="modal">
+                          <span class="fa fa-ban"></span><!-- react-text: 86 --> Hủy<!-- /react-text -->
+                        </button>
+                        <button type="button" class="btn btn-success ng-binding" data-toggle="modal">
+                          <!-- react-text: 88 -->Tiếp tục <!-- /react-text --><span class="ion-ios-arrow-right"></span>
+                        </button>
+                        <button type="button" id="triggerClickNextStep2" data-toggle="modal" data-target="#addProductStep2" style="display: none;"></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="addProductStep2" class="modal fade popAll import-modal" role="dialog">
+                  <div class="modal-lg modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <h4 class="modal-title">Thêm sản phẩm</h4>
+                      </div>
+                      <div class="modal-body ">
+                        <div class="stepaddSP">
+                          <a href="#" class="has-active">
+                            <span>1</span><!-- react-text: 101 -->Tạo sản phẩm<!-- /react-text -->
+                          </a>
+                          <a href="#" class="active">
+                            <span>2</span><!-- react-text: 104 -->Nhập hàng<!-- /react-text -->
+                          </a>
+                        </div>
+                        <div class="add-product" name="form.frmAddProduct">
+                          <div class="left-modal">
+                            <div class="table-responsive">
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th style="width: 5%; white-space: nowrap;">STT</th>
+                                    <th style="width: 25%; text-align: center;">Tên Sản Phẩm</th>
+                                    <th style="width: 15%; text-align: right;">Giá nhập</th>
+                                    <th style="width: 15%; text-align: right;">Giảm giá</th>
+                                    <th style="width: 15%; text-align: right;">Số Lượng</th>
+                                    <th style="width: 15%; text-align: right;">Thành Tiền</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td style="text-align: center;"><strong>1</strong></td>
+                                    <td style="text-align: center;"><strong style="display: block; height: 25px;">SP000001</strong><span class="name-product"></span></td>
+                                    <td><input type="text" value="0" class="form-control autoNumeric input-sm" data-cleave-ignore="0,[object Object],,function (t){var n=&quot;&quot;===t.target.value?0:parseInt((0,w.convertStr2Number)(String(t.target.value)));e.setState({OriginPrice_New:parseInt(n)})},," style="text-align: right;"></td>
+                                    <td><input type="text" value="0" class="form-control autoNumeric input-sm" data-cleave-ignore="0,[object Object],,function (t){var n=&quot;&quot;===t.target.value?0:parseInt((0,w.convertStr2Number)(String(t.target.value)));e.setState({Discount_New:parseInt(n)})},," style="text-align: right;"></td>
+                                    <td><input type="text" value="1" class="form-control autoNumeric input-sm" data-cleave-ignore="1,[object Object],,function (t){var n=&quot;&quot;===t.target.value?0:parseInt((0,w.convertStr2Number)(String(t.target.value)));e.setState({Quantity_New:parseInt(n)})},," style="text-align: right;"></td>
+                                    <td><strong style="text-align: right; display: block;">0</strong></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="right-modal">
+                            <ul class="nav nav-tabs left" style="background-color: rgb(255, 255, 255);">
+                              <li class="active"><a data-toggle="tab" data-target="#info">Thông tin</a></li>
+                              <li class="true"><a data-toggle="tab" data-target="#extendNH">Mở rộng</a></li>
+                              <li class="true"><a data-toggle="tab" data-target="#noteNH">Ghi chú</a></li>
+                            </ul>
+                            <div class="tab-content left w100pt">
+                              <div id="info" class="tab-pane fade in active">
+                                <div class="search-customer">
+                                  <div class="form-group row btn-square">
+                                    <div class="selectbox-Sp left" style="width: 100%;">
+                                      <select name="Vender" class="form-control ng-pristine ng-untouched ng-not-empty ng-valid-required ng-invalid ng-invalid-pattern" required="" aria-invalid="true" style="text-align: left; padding-left: 4px; width: 80%; display: block; float: left;">
+                                        <option value="-1">Chọn nhà cung cấp</option>
+                                      </select>
+                                      <button class="btn btn-default" data-toggle="modal" data-target="#pop-ncc" title="Thêm NCC" style="height: 33px;"><i class="fa fa-user-plus" aria-hidden="true" data-original-title="true" title="Thêm NCC" style="padding: 0px;"></i></button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="price-common">
+                                  <div class="bill-box left w100pt p0">
+                                    <div class="form-bill left w100pt"><label>Mã nhập hàng :</label><span><input type="text" class="form-control text-right" placeholder="Mã tự động sinh" disabled="" style="text-align: left;"></span></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div id="extendNH" class="tab-pane fade">
+                                <div class="bill-value">
+                                  <div class="bill-box-ex left w100pt">
+                                    <div class="form-bill left w100pt">
+                                      <label>Chi nhánh</label>
+                                      <span>
+                                        <select class="form-control ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required ng-valid-pattern" aria-invalid="false">
+                                          <option value="-1">Chi nhánh chính</option>
+                                        </select>
+                                      </span>
+                                      <p class="err_msg3 ng-hide" aria-hidden="true">*</p>
+                                    </div>
+                                    <div class="form-bill left w100pt">
+                                      <label>Thanh toán</label>
+                                      <span>
+                                        <select class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" aria-invalid="false">
+                                          <option value="0">Tiền mặt</option>
+                                          <option value="1">Chuyển khoản</option>
+                                        </select>
+                                      </span>
+                                    </div>
+                                    <div class="form-bill left w100pt">
+                                      <label>Người tạo</label>
+                                      <span>
+                                        <select class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" aria-invalid="false">
+                                          <option value="3" class="ng-binding ng-scope">Lê Huân</option>
+                                        </select>
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div id="noteNH" class="tab-pane fade">
+                                <div class="left noteSP w100pt"><textarea class="form-control ng-pristine ng-untouched ng-valid ng-empty" rows="3" placeholder="Ghi chú ..." aria-invalid="false" style="width: 100%;"></textarea></div>
+                              </div>
+                            </div>
+                            <div class="tab-content left w100pt">
+                              <div class="bill-value">
+                                <div class="bill-value-title">
+                                  <button class="btn">Thanh toán</button>
+                                  <div class="line"></div>
+                                </div>
+                                <div class="bill-box left w100pt">
+                                  <div class="form-bill left w100pt"><label>Tổng số lượng</label><span class="ng-binding">1</span></div>
+                                  <div class="form-bill left w100pt"><label>Tổng tiền</label><span class="ng-binding">0</span></div>
+                                  <div class="form-bill left w100pt"><label>Giảm giá</label><span><input type="text" value="0" class="form-control autoNumeric input-sm" data-cleave-ignore="0,[object Object],,function (t){var n=&quot;&quot;===t.target.value?0:parseInt((0,w.convertStr2Number)(String(t.target.value)));e.setState({discount:parseInt(n)})},," style="text-align: right; padding-right: 0px; font-size: 14px;"></span></div>
+                                  <div class="form-bill left w100pt"><label>Cần trả nhà cung cấp</label><span class="ng-binding">0</span></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button id="closeInputProduct" type="button" class="btn btn-default" data-dismiss="modal">
+                          <span class="fa fa-ban"></span><!-- react-text: 201 --> Hủy<!-- /react-text -->
+                        </button>
+                        <button type="button" class="btn btn-success ng-binding" id="createProduct">
+                          <!-- react-text: 203 -->Hoàn Thành <!-- /react-text --><span class="fa fa-sign-in"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="addGroupProduct" class="modal fade popAll product-modal" role="dialog" style="display: none;">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <h4 class="modal-title">Tạo nhóm hàng</h4>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-group row form-pad">
+                          <label for="input" class="ng-binding"> Tên nhóm hàng</label>
+                          <div><input type="text" name="addGroupProduct" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Nhập tên nhóm hàng" aria-invalid="false" style="text-align: left; padding-left: 10px;"><span class="err_msg" aria-hidden="false">*</span></div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                          <span class="fa fa-ban"></span><!-- react-text: 220 --> Hủy<!-- /react-text -->
+                        </button>
+                        <button type="button" class="btn btn-success ng-binding" id="btnSave" data-dismiss="modal">
+                          <span class="fa fa-save"></span><!-- react-text: 223 --> Lưu<!-- /react-text -->
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="addBrand" class="modal fade popAll product-modal" role="dialog" style="display: none;">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" id="Close_newManufacture" class="close" data-dismiss="modal">×</button>
+                        <h4 class="modal-title">Tạo nhãn hiệu</h4>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-group row form-pad">
+                          <label for="input" class="ng-binding"> Tên nhãn hiệu</label>
+                          <div><input type="text" name="newManufactureName" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Nhập tên nhãn hiệu" aria-invalid="false" style="text-align: left; padding-left: 10px;"><span class="err_msg" aria-hidden="false">*</span></div>
+                        </div>
+                        <div class="form-group row form-pad">
+                          <label for="input" class="ng-binding">Xuất xứ</label>
+                          <div><input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Nhập xuất xứ" aria-invalid="false" style="text-align: left; padding-left: 10px;"></div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                          <span class="fa fa-ban"></span><!-- react-text: 243 --> Hủy<!-- /react-text -->
+                        </button>
+                        <button type="button" class="btn btn-success ng-binding" id="btnSave1">
+                          <span class="fa fa-save"></span><!-- react-text: 246 --> Lưu<!-- /react-text -->
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal fade popup-ncc popAll in" id="pop-ncc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="z-index: 99999; display: none;">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" id="close_vender" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title">
+                          <span class="fa fa-list-ul"></span><!-- react-text: 255 -->Thêm nhà cung cấp<!-- /react-text -->
+                        </h4>
+                      </div>
+                      <div class="modal-body ng-pristine ng-invalid ng-invalid-required ng-valid-pattern ng-valid-email" name="frmAddVendor">
+                        <div class="form-group">
+                          <label>Mã nhà cung cấp</label>
+                          <div><input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Mã nhà cung cấp" value="" disabled="" aria-invalid="false"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Tên nhà cung cấp</label>
+                          <div><input type="text" id="VendorName" value="" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" placeholder="Tên nhà cung cấp" required="" aria-invalid="true"><span class="err_msg" aria-hidden="false">*</span></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Số điện thoại</label>
+                          <div><input type="text" id="VendorPhone" value="" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-pattern" placeholder="Số điện thoại" required="" aria-invalid="true"><span class="err_msg" aria-hidden="false">*</span></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Email</label>
+                          <div><input type="email" name="txtEmail" id="VendorEmail" value="" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-email" placeholder="Email" aria-invalid="false"><span class="err_msg ng-hide" aria-hidden="true">*</span></div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="padding-left: 5px; padding-right: 20px;">
+                          <span class="fa fa-ban"></span><!-- react-text: 279 -->Bỏ qua<!-- /react-text -->
+                        </button>
+                        <button type="button" id="createVendor" class="btn btn-success" style="padding-left: 10px; padding-right: 20px;">
+                          <span class="fa fa-save"></span><!-- react-text: 282 -->Lưu<!-- /react-text -->
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- react-empty: 283 -->
+              </div>
+              <div class="toolbar fb-view">
+                <div class="fb-view app-switcher-container collapsedable">
+                  <div data-uib-dropdown="true" class="button-main-menu dropdown">
+                    <div class="fb-view app-switcher-container collapsedable">
+                      <div data-uib-dropdown="true" class="button-main-menu dropdown" id="topmenu" style="background: rgb(66, 103, 178); border-bottom: 1px solid rgba(0, 0, 0, 0.1); border-right: 1px solid rgb(41, 98, 146); width: 50px;">
+                        <div class="main-menu-name dropdown-toggle" data-toggle="dropdown" data-uib-dropdown-toggle="true" aria-haspopup="true" aria-expanded="false">
+                          <divs class="logochat"><img src="img/logo-menu.png" class="img1"></divs>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="full-Chat">
+                  <ul class="nav nav-pills navbar-left tabChat">
+                    <li class="active"><a href="#" data-toggle="tab" class="chatGroud"><i class="fa fa-comments-o" aria-hidden="true"></i></a></li>
+                    <li><a href="#3a" data-toggle="tab" class="newsAll"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a></li>
+                    <li><a href="#4a" data-toggle="tab" class="settingAll"><i class="fa fa-cogs" aria-hidden="true"></i></a></li>
+                    <li>
+                      <a target="_blank" class="barChatGroud">
+                        <i class="icon-menu-cms" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li><a target="_blank" class="settingAll"><i class="icon-menu-report" aria-hidden="true"></i></a></li>
+                    <li><a target="_blank" class="settingAll"><i class="icon-menu-message" aria-hidden="true"></i></a></li>
+                    <li><a target="_blank" class="likeChatGroud"><i class="fa fa-line-chart" aria-hidden="true"></i></a></li>
+                    <li class="li_hotline"><i class="icon-menu-hotline" aria-hidden="true"></i><i class="icon-menu-hotline-kt" aria-hidden="true"></i></li>
+                  </ul>
+                  <div class="menuTop-controls" style="top: -44px;">
+                    <div class="fbc-controls account-menu">
+                      <div class="css-cs9jnn"><span></span></div>
+                      <div class="btn-top-action" style="border-right: 0px; margin-left: -1px;"><i class="fa fa-download"></i></div>
+                      <div class="button-help" title="Hepl"><a target="_blank" href="/support" title="Hepl" style="z-index: 8;"><i class="ion-ios-help-outline"></i></a></div>
+                      <div class="user-account dropdown" data-uib-dropdown="true">
+                        <div data-uib-dropdown-toggle="true" data-toggle="dropdown" class="dropdown-toggle" style="margin-right: 2px;"><img width="40" height="40" src="https://graph.facebook.com/374043163044305/picture?type=square"><span class="caret"></span></div>
+                        <div class="dropdown-menu dropdown-menu-right" style="min-width: 180px; margin-right: 10px;">
+                          <a href="javascript:" class="dropdown-item"><b>Lê Huân</b></a>
+                          <p class="divider"></p>
+                          <a href="https://fb.sale/facebook-page-selector.html" class="dropdown-item">
+                            <i class="fa fa-th"></i><!-- react-text: 337 -->Chọn page<!-- /react-text -->
+                          </a>
+                          <a href="/config" class="dropdown-item">
+                            <i class="fa fa-cogs" aria-hidden="true"></i><!-- react-text: 340 -->Đến trang cài đặt<!-- /react-text -->
+                          </a>
+                          <a href="/postlist" class="dropdown-item">
+                            <i class="fa fa-newspaper-o"></i><!-- react-text: 343 -->Đến trang bài viết<!-- /react-text -->
+                          </a>
+                          <a href="/chat" class="dropdown-item">
+                            <i class="fa fa-comments-o" aria-hidden="true"></i><!-- react-text: 346 --> <!-- /react-text --><!-- react-text: 347 -->Đến trang hội thoại<!-- /react-text -->
+                          </a>
+                          <a href="https://facebook.com/1447692228685620" class="dropdown-item">
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i><!-- react-text: 350 --> Đến facebook cá nhân<!-- /react-text -->
+                          </a>
+                          <a aria-hidden="true"></i><!-- react-text: 353 --> Gia hạn &amp; khuyến mại<!-- /react-text -->
+                          </a>
+                          <a class="dropdown-item">
+                            <i class="ion-log-out"></i><!-- react-text: 356 --> <!-- /react-text --><!-- react-text: 357 -->Đăng xuất<!-- /react-text -->
+                          </a>
+                        </div>
+                      </div>
+                      <div class="fanpage-account ng-scope"><a href="https://facebook.com/1447692228685620" target="_blank" class="ng-binding">Ruby Dev</a><img src="https://graph.facebook.com/1447692228685620/picture?type=square"></div>
+                      <!-- react-empty: 358 -->
+                    </div>
+                  </div>
+                </div>
+                <div class="fb-view search-container collapsed">
+                  <div class="fb-view search-wrapper">
+                    <div class="fb-view search-text"><input type="text" class="js-example-basic-single " tabindex="-1" id="txt_search_conversation" placeholder="Tìm kiếm" aria-hidden="true"><span class="dropdown-wrapper" aria-hidden="true"></span></div>
+                    <div class="fb-view search-left"></div>
+                  </div>
+                </div>
+                <div class="fb-view toolbar-container collapse-tab">
+                  <div class="fbc-controls" style="width: 60%;">
+                    <div class="ng-scope">
+                      <div data-tooltip-placement="bottom" class="btn-top-action">
+                        <p class="">[0] Hội thoại
+                        </p>
+                      </div>
+                      <a target="_blank" data-tooltip-placement="bottom" data-uib-tooltip="Xem trên facebook" class="btn-top-action" href="https://facebook.com/undefined"><i class="fa fa-external-link-square"></i></a>
+                      <div class="btn-top-action" data-tooltip-placement="bottom"><i class="fa fa-tag"></i></div>
+                      <div class="btn-top-action"><i class="fa fa-user-times"></i></div>
+                      <div class="btn-top-action"><i class="fa fa-refresh"></i></div>
+                      <a target="_blank" data-tooltip-placement="bottom" class="btn-top-action_right" href="https://www.facebook.com/groups/341994176248299/">
+                        <span class="span_support">
+                          <!-- react-text: 383 --> <!-- /react-text --><i class="fa fa-users" style="font-size: 12px; display: block; padding-top: 6px;"></i>
+                        </span>
+                        <span class="text_support">Group hỗ trợ</span>
+                      </a>
+                      <a target="_blank" data-tooltip-placement="bottom" class="btn-top-action_right" href="http://m.me/windgoaway" style="padding-right: 0px;">
+                        <span class="span_support" style="background-color: rgb(241, 95, 65);">
+                          <!-- react-text: 388 --> <!-- /react-text --><i class="fa fa-comments-o" style="font-size: 14px; display: block; padding-top: 5px;"></i>
+                        </span>
+                        <span class="text_support" style="color: rgb(241, 95, 65);">Chat với kỹ thuật</span>
+                      </a>
+                      <!-- react-empty: 391 -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="fb-view fb-content page-conversation">
+                <div class="fb-view top-left-filter collapsable">
+                  <div class="fb-view stack-order">
+                    <div class="stack-item "><i class="fa fa-eye-slash"></i></div>
+                    <div class="stack-item "><i class="fa fa-reply-all"></i></div>
+                    <div class="stack-item "><i class="fa fa-phone-square"></i></div>
+                    <div class="dropright filter-tag dropdown">
+                      <div class="stack-item" data-container="body" data-toggle="popover" data-placement="right"><i class="fa fa-tags"></i></div>
+                    </div>
+                    <div class="dropright filter-tag dropdown">
+                      <div class="stack-item" data-container="body" data-toggle="popover" data-placement="right"><i class="fa fa-calendar"></i></div>
+                    </div>
+                    <div class="dropright">
+                      <div class="stack-item filterBlock"><i class="fa fa-black-tie" aria-hidden="true"></i></div>
+                    </div>
+                    <div class="dropright filter-tag dropdown">
+                      <div class="stack-item filterPost" data-toggle="dropdown"><i class="fa fa-file-text-o"></i></div>
+                      <div class="dropdown-menu" style="width: 350px;">
+                        <div style="width: 100%; position: relative; height: 40px;">
+                          <input type="text" title="Press Enter" class="search_post_list" placeholder="Nhập ID bài viết sau đó nhấn Enter để tìm" value="" spellcheck="false">
+                          <p class="button_search_post" title="Search"><i class="fa fa-search"></i></p>
+                        </div>
+                        <div style="max-height: 360px; width: 100%; overflow: auto;"></div>
+                      </div>
+                    </div>
+                    <div class="dropright filter-tag dropdown">
+                      <div class="stack-item"><i class="fa fa-th"></i></div>
+                    </div>
+                    <div class="stack-item "><i class="fa fa-undo"></i></div>
+                    <div class="stack-item" style="border-bottom: 0px;"></div>
+                  </div>
+                </div>
+                <div class="fb-view right-pane-content collapsed">
+                  <div class="fb-view list-activities lst-chat">
+                    <div class="lst-items-chat">
+                      <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                          <a href="#all_tab" aria-controls="recent_tab" role="tab" class="type_button_all" data-toggle="tab">
+                            <span class="fa fa-hdd-o"></span><!-- react-text: 432 -->Tất cả<!-- /react-text -->
+                            <b style="font-size: 12px; padding-left: 2px; padding-bottom: 10px;">
+                              <!-- react-text: 434 -->[<!-- /react-text --><!-- react-text: 435 -->]<!-- /react-text -->
+                            </b>
+                          </a>
+                        </li>
+                        <li role="presentation">
+                          <a href="#envelope_tab" class="type_button_0" aria-controls="recent_tab" role="tab" data-toggle="tab">
+                            <span class="fa fa-envelope-o"></span><!-- react-text: 439 -->Tin nhắn<!-- /react-text -->
+                          </a>
+                        </li>
+                        <li role="presentation">
+                          <a href="#comment_tab" class="type_button_1" data-toggle="tab" style="padding: 0px;">
+                            <span class="fa fa-comment-o"></span><!-- react-text: 443 -->Bình luận<!-- /react-text -->
+                          </a>
+                        </li>
+                      </ul>
+                      <div class="tab-content">
+                        <center style="margin-top: 50%;">
+                          <p style="font-size: 12px; color: rgb(60, 122, 180);">Không có hội thoại nào</p>
+                        </center>
+                        <div role="tabpanel" class="tab-pane active fb-view discussion ng-isolate-scope mCustomScrollbar" id="all_tab">
+                          <span>
+                            <ul class="list-recent-msg">
+                              <li class="active">
+                                <div class="left-item"><a class="img"><img src="https://graph.facebook.com/1447692228685620/picture?type=square" alt="avatar"></a></div>
+                                <div class="mid-item info-chat">
+                                  <div class="chat-user w100pt left">
+                                    <p class="hidden-txt">Ruby Dev</p>
+                                  </div>
+                                  <div class="txtComment hidden-txt left w100pt">
+                                    <p id="last_message_1303990" class="" style="margin: 0px;">:D</p>
+                                  </div>
+                                  <div class="tag-chat left w100pt"></div>
+                                </div>
+                                <div class="right-item info-chat-content">
+                                  <div class="info-time-chat hidden-txt">
+                                    <p id="time_last_message_1303990">11:53</p>
+                                  </div>
+                                  <div class="short-chat hidden-txt"><span><i class="ion-ios fa fa-comment-o" aria-hidden="true"></i></span><span><i class="ion-ios fa " aria-hidden="true" style="padding-right: 2px;"></i></span></div>
+                                </div>
+                              </li>
+                              <li class="chua_doc">
+                                <div class="left-item"><a class="img"><img src="https://graph.facebook.com/374043163044305/picture?type=square" alt="avatar"></a></div>
+                                <div class="mid-item info-chat">
+                                  <div class="chat-user w100pt left">
+                                    <p class="hidden-txt">Lê Huân</p>
+                                  </div>
+                                  <div class="txtComment hidden-txt left w100pt">
+                                    <p id="last_message_1303960" class="" style="margin: 0px;">Lê Huân: Tôi là tôi</p>
+                                  </div>
+                                  <div class="tag-chat left w100pt"></div>
+                                </div>
+                                <div class="right-item info-chat-content">
+                                  <div class="info-time-chat hidden-txt">
+                                    <p id="time_last_message_1303960">11:51</p>
+                                  </div>
+                                  <div class="short-chat hidden-txt"><span><i class="ion-ios fa fa-envelope" aria-hidden="true"></i></span><span><i class="ion-ios fa " aria-hidden="true" style="padding-right: 2px;"></i></span></div>
+                                </div>
+                              </li>
+                            </ul>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="fb-view activity-content">
+                    <div class="left-content">
+                      <div class="fb-view discussion ng-isolate-scope mCustomScrollbar">
+                        <center>
+                          <p style="font-size: 12px; color: rgb(60, 122, 180); margin-top: 25%;">
+                            Trang mới kích hoạt vui lòng bẩm nút <i class="fa fa-download"></i> phía trên để tải dữ liệu về
+                          </p>
+                        </center>
+                        <div class="fb-view discussion ng-isolate-scope mCustomScrollbar">
+                        <center>
+                          <div class="content_post_mg">TÔI LÀ AI ?</div>
+                          <div title="Click để xem ảnh lớn hơn">
+                            <!-- react-empty: 1940 --><img class="imgBV">
+                          </div>
+                        </center>
+                        <div>
+                          <div class="ng-scope">
+                            <div class="self-msg">
+                              <h4 class="msg-time ng-scope">
+                                <span class="ng-scope">
+                                  <span class="ng-binding ng-scope">
+                                    <b class="ng-binding">Ruby Dev</b><!-- react-text: 2062 --> <!-- /react-text --><!-- react-text: 2063 -->(28/12/2017 - 11:53)<!-- /react-text -->
+                                  </span>
+                                </span>
+                              </h4>
+                              <div class="content-msg clearfix ng-scope">
+                                <div class="isSent"><span title="Đã gửi" class="ng-scope"><i class="fa fa-check-circle-o"></i></span></div>
+                                <div class="ctmsg-wrapper">
+                                  <div class="bg-msg ng-scope">
+                                    <span class="text-msg ng-binding">
+                                      <span>
+                                        <div>:"&gt;</div>
+                                      </span>
+                                    </span>
+                                    <span class="hover-time-mesage">28/12/2017 - 11:53</span>
+                                  </div>
+                                  <div class="act-controls">
+                                    <div class="actc-wrapper">
+                                      <span class="glyphicon glyphicon-option-horizontal more-tooltip" aria-hidden="true" style="margin-top: 10px; color: rgb(209, 209, 209); font-size: 12px;"></span>
+                                      <div class="actc-button">
+                                        <div class="action-msg ng-scope"><span class="fa fa-trash-o ng-scope"></span></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- react-empty: 2080 --><!-- react-empty: 2081 -->
+                          </div>
+                          <div class="ng-scope" style="">
+                            <div class="self-msg">
+                              <h4 class="msg-time ng-scope">
+                                <span class="ng-scope">
+                                  <span class="ng-binding ng-scope">
+                                    <b class="ng-binding">Lê Huân</b><!-- react-text: 2088 --> <!-- /react-text --><!-- react-text: 2089 -->(28/12/2017 - 11:53)<!-- /react-text -->
+                                  </span>
+                                </span>
+                              </h4>
+                              <div class="content-msg clearfix ng-scope">
+                                <div class="isSent"><span title="Đã gửi" class="ng-scope"><i class="fa fa-check-circle-o"></i></span></div>
+                                <div class="ctmsg-wrapper">
+                                  <div class="bg-msg ng-scope">
+                                    <span class="text-msg ng-binding">
+                                      <span>
+                                        <div>:D</div>
+                                      </span>
+                                    </span>
+                                    <span class="hover-time-mesage">28/12/2017 - 11:53</span>
+                                  </div>
+                                  <div class="act-controls">
+                                    <div class="actc-wrapper">
+                                      <span class="glyphicon glyphicon-option-horizontal more-tooltip" aria-hidden="true" style="margin-top: 10px; color: rgb(209, 209, 209); font-size: 12px;"></span>
+                                      <div class="actc-button">
+                                        <div class="action-msg ng-scope"><span class="fa fa-trash-o ng-scope"></span><span class="fa fa-pencil-square-o"></span></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- react-text: 2107 --><!-- /react-text -->
+                            </div>
+                            <!-- react-empty: 2108 --><!-- react-empty: 2113 -->
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                      <div class="fb-view discussion-toolbar">
+                        <div data-number="5" class="discussion-tags clearfix"><span class="msg-tag ng-binding ng-scope unactive" style="background-color: rgb(189, 39, 39); color: rgb(255, 255, 255); overflow: hidden; text-overflow: ellipsis;">Trả hàng</span><span class="msg-tag ng-binding ng-scope unactive" style="background-color: rgb(56, 166, 244); color: rgb(255, 255, 255); overflow: hidden; text-overflow: ellipsis;">Hết hàng</span><span class="msg-tag ng-binding ng-scope unactive" style="background-color: rgb(0, 147, 68); color: rgb(255, 255, 255); overflow: hidden; text-overflow: ellipsis;">Đã gửi</span><span class="msg-tag ng-binding ng-scope unactive" style="background-color: rgb(13, 90, 255); color: rgb(255, 255, 255); overflow: hidden; text-overflow: ellipsis;">Mua hàng</span><span class="msg-tag ng-binding ng-scope unactive" style="background-color: rgb(130, 43, 161); color: rgb(255, 255, 255); overflow: hidden; text-overflow: ellipsis;">Tư vấn</span></div>
+                        <textarea class="discussion-input ng-valid ng-isolate-scope ng-touched ng-dirty ng-empty ng-pristine ng-untouched" placeholder="Viết trả lời tin nhắn...[Nhấn Enter để gửi]"></textarea>
+                        <div class="discussion-buttons clearfix">
+                          <div class="discussion-button">
+                            <span class="fa fa-file-image-o"></span><!-- react-text: 463 --> <!-- /react-text --><!-- react-text: 464 -->Thêm ảnh<!-- /react-text --><input type="file" data-file-input="true" value="" accept="image/*" class="attach-image">
+                          </div>
+                          <div class="btn-group dropup btn-quick-reply quic-Reply dropdown " data-uib-dropdown="true">
+                            <div class="discussion-button dropdown-toggle" data-toggle="dropdown" data-uib-dropdown-toggle="true" aria-haspopup="true" aria-expanded="true">
+                              <span class="fa fa-commenting-o"></span><!-- react-text: 469 --> <!-- /react-text --><!-- react-text: 470 -->Trả lời nhanh<!-- /react-text -->
+                            </div>
+                            <ul class="dropdown-menu">
+                              <h6 class="dropdown-header left w100pt">
+                                <span style="float: left; margin-right: 10px;">Gõ tắt (VD: 1/  nhấn Enter). Để thêm tin nhắn nhanh bấm vào</span>
+                                <a class="left">
+                                  <i class="fa fa-cog"></i><!-- react-text: 476 --> <!-- /react-text --><!-- react-text: 477 -->Cài đặt<!-- /react-text -->
+                                </a>
+                              </h6>
+                            </ul>
+                          </div>
+                          <div class="discussion-note">
+                            <b>Shift + Enter</b><!-- react-text: 480 --> <!-- /react-text --><b style="color: rgb(255, 255, 255);"> . </b><!-- react-text: 482 --> <!-- /react-text --><!-- react-text: 483 -->để xuống dòng<!-- /react-text -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="right-content">
+                      <div class="fb-view customer-order ng-isolate-scope" type="pills">
+                        <ul class="nav nav-tabs nav nav-pills" role="tablist">
+                          <li role="presentation" class="active">
+                            <a href="#custmomer_tab" aria-controls="recent_tab" role="tab" data-toggle="tab">
+                              <span class="ion-ios ion-person"></span>
+                              <p class="p_customer">1</p>
+                              <!-- react-text: 491 --> Khách hàng<!-- /react-text -->
+                            </a>
+                          </li>
+                          <li role="presentation" id="order_tab_cus_1">
+                            <a href="#order_tab" id="order_tab_cus" aria-controls="recent_tab" role="tab" data-toggle="tab">
+                              <span class="ion-ios ion-ios-cart"></span><!-- react-text: 495 --> <!-- /react-text -->
+                              <p class="p_customer">2</p>
+                              <!-- react-text: 497 -->Tạo đơn<!-- /react-text -->
+                            </a>
+                          </li>
+                          <p class="button_add_order" style="float: right; width: 94px; max-width: 35%; margin-top: 5px; font-size: 12px; padding: 2px 3px 2px 4px;">
+                            <i class="fa fa-file-image-o" style="padding-right: 3px; font-size: 12px;"></i><!-- react-text: 500 -->Thư viện ảnh<!-- /react-text -->
+                          </p>
+                        </ul>
+                        <div class="tab-content">
+                          <div role="tabpanel" class="tab-pane ng-scope active " id="custmomer_tab" style="overflow-y: hidden;">
+                            <div class="customer ng-scope" style="height: 100%;">
+                              <div class="box customer-info clearfix">
+                                <div class="left-item"><span class="img"><img src="https://graph.facebook.com/undefined/picture?type=square"></span></div>
+                                <div class="right-item">
+                                  <div class="item-row item-name ellipsis ng-binding"><b></b></div>
+                                  <div class="item-row item-link ellipsis"><a target="_blank" href="https://facebook.com/undefined">Xem Facebook cá nhân</a></div>
+                                </div>
+                              </div>
+                              <form name="myForm" class="Customer_form_input">
+                                <div class="box customer-info">
+                                  <div class="info clearfix">
+                                    <div class="icon"><i class="fa fa-user"></i></div>
+                                    <div class="text border ng-binding">
+                                      <div class="input-group" style="width: 100%; text-align: left; padding-left: 0px;"><input type="text" id="Customer_name" class="form-control" placeholder="Tên khách hàng" maxlength="35" style="text-align: left; width: 100%;"></div>
+                                    </div>
+                                  </div>
+                                  <div class="info clearfix">
+                                    <div class="icon"><i class="fa fa-phone"></i></div>
+                                    <div class="text border ng-binding">
+                                      <div class="input-group" style="width: 100%; text-align: left;"><input type="text" id="Customer_phone" class="form-control" placeholder="Số điện thoại" maxlength="11" style="text-align: left; width: 75%;"></div>
+                                    </div>
+                                  </div>
+                                  <div class="info clearfix">
+                                    <div class="icon"><i class="fa fa-envelope"></i></div>
+                                    <div class="text ng-binding">
+                                      <div class="form-group">
+                                        <div class="input-group" style="width: 100%; text-align: left;"><input type="text" id="Customer_email" class="form-control" placeholder="Email khách hàng" maxlength="35" style="text-align: left; width: 88%;"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="info clearfix">
+                                    <div class="icon"><i class="fa fa-map-marker"></i></div>
+                                    <div class="text no-border ng-binding">
+                                      <div class="input-group" style="width: 100%; text-align: left; border-bottom: 1px solid rgba(0, 0, 0, 0.05);"><input type="text" id="Customer_address" class="form-control" placeholder="Địa chỉ khách hàng" maxlength="50" style="text-align: left; width: 88%;"></div>
+                                    </div>
+                                  </div>
+                                  <div class="info clearfix">
+                                    <div class="icon"><i class="fa fa-user"></i></div>
+                                    <div style="float: left; width: calc(100% - 27px);">
+                                      <div class="text border ng-binding" style="width: 50%;">
+                                        <div class="input-group" style="width: 100%; text-align: left; padding-left: 0px;">
+                                          <select class="form-control" style="text-align: left;">
+                                            <option value="-1" style="color: rgb(153, 153, 153);">Chọn tỉnh thành</option>
+                                            <option value="1">TP Hà Nội</option>
+                                            <option value="2">TP Hồ Chí Minh</option>
+                                            <option value="3">TP Đà Nẵng</option>
+                                            <option value="4">Thành phố Cần Thơ</option>
+                                            <option value="5">Thành phố Hải Phòng</option>
+                                            <option value="6">Tỉnh An Giang</option>
+                                            <option value="7">Tỉnh Bà Rịa - Vũng Tàu</option>
+                                            <option value="8">Tỉnh Bắc Giang</option>
+                                            <option value="9">Tỉnh Bắc Kạn</option>
+                                            <option value="10">Tỉnh Bạc Liêu</option>
+                                            <option value="11">Tỉnh Bắc Ninh</option>
+                                            <option value="12">Tỉnh Bến Tre</option>
+                                            <option value="13">Tỉnh Bình Định</option>
+                                            <option value="14">Tỉnh Bình Dương</option>
+                                            <option value="15">Tỉnh Bình Phước</option>
+                                            <option value="16">Tỉnh Bình Thuận</option>
+                                            <option value="17">Tỉnh Cà Mau</option>
+                                            <option value="18">Tỉnh Cao Bằng</option>
+                                            <option value="19">Tỉnh Đắk Lắk</option>
+                                            <option value="20">Tỉnh Đắk Nông</option>
+                                            <option value="21">Tỉnh Điện Biên</option>
+                                            <option value="22">Tỉnh Đồng Nai</option>
+                                            <option value="23">Tỉnh Đồng Tháp</option>
+                                            <option value="24">Tỉnh Gia Lai</option>
+                                            <option value="25">Tỉnh Hà Giang</option>
+                                            <option value="26">Tỉnh Hà Nam</option>
+                                            <option value="27">Tỉnh Hà Tĩnh</option>
+                                            <option value="28">Tỉnh Hải Dương</option>
+                                            <option value="29">Tỉnh Hậu Giang</option>
+                                            <option value="30">Tỉnh Hoà Bình</option>
+                                            <option value="31">Tỉnh Hưng Yên</option>
+                                            <option value="32">Tỉnh Khánh Hòa</option>
+                                            <option value="33">Tỉnh Kiên Giang</option>
+                                            <option value="34">Tỉnh Kon Tum</option>
+                                            <option value="35">Tỉnh Lai Châu</option>
+                                            <option value="36">Tỉnh Lâm Đồng</option>
+                                            <option value="37">Tỉnh Lạng Sơn</option>
+                                            <option value="38">Tỉnh Lào Cai</option>
+                                            <option value="39">Tỉnh Long An</option>
+                                            <option value="40">Tỉnh Nam Định</option>
+                                            <option value="41">Tỉnh Nghệ An</option>
+                                            <option value="42">Tỉnh Ninh Bình</option>
+                                            <option value="43">Tỉnh Ninh Thuận</option>
+                                            <option value="44">Tỉnh Phú Thọ</option>
+                                            <option value="45">Tỉnh Phú Yên</option>
+                                            <option value="46">Tỉnh Quảng Bình</option>
+                                            <option value="47">Tỉnh Quảng Nam</option>
+                                            <option value="48">Tỉnh Quảng Ngãi</option>
+                                            <option value="49">Tỉnh Quảng Ninh</option>
+                                            <option value="50">Tỉnh Quảng Trị</option>
+                                            <option value="51">Tỉnh Sóc Trăng</option>
+                                            <option value="52">Tỉnh Sơn La</option>
+                                            <option value="53">Tỉnh Tây Ninh</option>
+                                            <option value="54">Tỉnh Thái Bình</option>
+                                            <option value="55">Tỉnh Thái Nguyên</option>
+                                            <option value="56">Tỉnh Thanh Hóa</option>
+                                            <option value="57">Tỉnh Thừa Thiên Huế</option>
+                                            <option value="58">Tỉnh Tiền Giang</option>
+                                            <option value="59">Tỉnh Trà Vinh</option>
+                                            <option value="60">Tỉnh Tuyên Quang</option>
+                                            <option value="61">Tỉnh Vĩnh Long</option>
+                                            <option value="62">Tỉnh Vĩnh Phúc</option>
+                                            <option value="63">Tỉnh Yên Bái</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                      <div class="form-phone">
+                                        <div class="text border ng-binding" style="width: 50%;">
+                                          <div class="input-group" style="width: 100%; text-align: left;">
+                                            <select class="form-control" style="text-align: left;">
+                                              <option value="-1" style="color: rgb(153, 153, 153);">Chọn quận huyện</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="info clearfix">
+                                    <div class="icon"><i class="fa fa-users"></i></div>
+                                    <div class="text no-border ng-binding">
+                                      <div class="input-group" style="width: 100%; text-align: left;">
+                                        <select class="form-control" title="Nhóm khách hàng" style="text-align: left;">
+                                          <option value="-1" style="color: rgb(153, 153, 153);">Chọn loại khách hàng</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="line"></div>
+                                </div>
+                              </form>
+                              <div class="tab_user_box_button">
+                                <p class="button_add_order">
+                                  <i class="fa fa-cart-plus" style="padding-right: 5px; font-size: 14px;"></i><!-- react-text: 564 -->Tạo đơn<!-- /react-text -->
+                                </p>
+                                <p class="button_add_block">
+                                  <i class="fa fa-exclamation-triangle" style="padding-right: 5px; font-size: 12px; color: rgb(245, 245, 245);"></i><!-- react-text: 567 -->Báo xấu<!-- /react-text -->
+                                </p>
+                                <p class="button_save_user"><i class="fa fa-floppy-o" style="font-size: 14px; padding-right: 5px; color: rgb(0, 0, 0);"></i><span>Lưu thông tin khách</span></p>
+                              </div>
+                              <div class="box customer-info clearfix" style="height: 25px; margin-top: 10px;">
+                                <p class="video_order">
+                                  <i class="fa fa-youtube-square" style="padding-right: 5px; font-size: 14px; color: rgb(241, 95, 65);"></i><!-- react-text: 574 -->VIDEO HƯỚNG DẪN TẠO ĐƠN HÀNG &amp; VẬN CHUYỂN<!-- /react-text --><i class="fa fa-youtube-square" style="padding-left: 4px; font-size: 14px; color: rgb(241, 95, 65);"></i>
+                                </p>
+                              </div>
+                              <!-- react-empty: 576 --><!-- react-empty: 577 -->
+                              <div class="box customer-info clearfix" style="float: left; width: 100%; height: 40px; margin-bottom: -10px; margin-top: 10px;">
+                                <!-- react-text: 919 --><!-- /react-text -->
+                              </div>
+                              <!-- react-empty: 580 --><!-- react-empty: 581 --><!-- react-empty: 582 -->
+                            </div>
+                          </div>
+                          <div role="tabpanel" class="tab-pane ng-scope " id="order_tab" style="overflow-y: hidden;">
+                            <div id="orderScreen" class="col-md-12" style="padding-right: 0px;">
+                              <div id="boxProducts">
+                                <div id="products" class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px;">
+                                  <div>
+                                    <div class="input-group" style="max-width: 58%; position: absolute;">
+                                      <div id="addNewProduct">
+                                        <select class="select_brand">
+                                          <option value="1756">---Chọn chi nhánh---</option>
+                                          <option value="1756">HLV - Chi nhánh chính</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div id="tblOrderProduct" class="table table-striped tblOrderProduct" style="margin-bottom: 0px; margin-top: 40px;">
+                                    <div class="tr_order_list_product">
+                                      <div class="p_name">Sản phẩm</div>
+                                      <div class="p_unit">Đơn vị</div>
+                                      <div class="p_quan">Số lượng</div>
+                                      <div class="p_price">Đơn giá</div>
+                                    </div>
+                                    <div class="div_no_product">
+                                      <img src="img/iconcart-big.png">
+                                      <h2>Chưa có sản phẩm nào được thêm</h2>
+                                      <p>Nhấn nút thêm sản phầm</p>
+                                      <center>
+                                        <button type="button" class="btn_add_product_new">
+                                          <!-- react-text: 604 -->Thêm sản phẩm <!-- /react-text --><i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                        </button>
+                                      </center>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row tab-VC" style="padding: 0px 5px;"></div>
+                              <div id="boxFee" class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12 transport-fee" style="padding: 0px;">
+                                  <div class="form-group sale-right right" style="margin-bottom: 10px;">
+                                    <label class="label_product">Giảm giá</label>
+                                    <div class="div_input_product">
+                                      <div class="input-group" style="border-radius: 0px;">
+                                        <div class="input-group-addon"><i class="fa fa-hand-o-down"></i></div>
+                                        <input type="text" value="0" class="form-control autoNumeric input-sm" style="text-align: left;">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group transport-left left">
+                                    <label class="label_product">Vận chuyển</label>
+                                    <div class="div_input_product">
+                                      <div class="input-group" style="border: 0px; width: 68%; border-radius: 0px;">
+                                        <select class="select-tran">
+                                          <option value="0">Tự vận chuyển</option>
+                                          <option value="1">Nhà cung cấp dịch vụ vận chuyển</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group transport-left left">
+                                    <label class="label_product">Phí vận chuyển</label>
+                                    <div class="div_input_product">
+                                      <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-money"></i></div>
+                                        <input type="text" value="0" class="form-control autoNumeric input-sm" style="text-align: left;">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <button type="button" id="transport" data-toggle="modal" data-target="#popuptdvc" style="display: none;"></button>
+                                  <div class="form-group sale-right right">
+                                    <label class="label_product">Ghi chú</label>
+                                    <div class="div_input_product"><textarea id="description"></textarea></div>
+                                  </div>
+                                  <div class="tra-nguoi-gui form-group left w100pt">
+                                    <label class="col-md-5 col-sm-5 col-xs-7" id="labelPaySender" style="padding-right: 0px;">Tổng thanh toán</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-5" style="padding: 0px; text-align: right;">
+                                      <label id="paySender" class="total_price">
+                                        <!-- react-text: 639 -->0<!-- /react-text --><!-- react-text: 640 --> <!-- /react-text --><!-- react-text: 641 -->VNĐ<!-- /react-text -->
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="tra-nguoi-gui form-group left w100pt">
+                                    <label class="col-md-5 col-sm-5 col-xs-7" id="labelPaySender" style="padding-right: 0px;">Tiền đã thu</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-5" style="padding: 0px; text-align: right;">
+                                      <label id="paySender" class="total_price">
+                                        <!-- react-text: 646 -->0<!-- /react-text --><!-- react-text: 647 --> <!-- /react-text --><!-- react-text: 648 -->VNĐ<!-- /react-text -->
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="tra-nguoi-gui form-group left w100pt">
+                                    <label class="col-md-5 col-sm-5 col-xs-7" id="labelPaySender" style="padding-right: 0px;">Tổng tiền còn thiếu</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-5" style="padding: 0px; text-align: right;">
+                                      <label id="paySender" class="total_price">
+                                        <!-- react-text: 653 -->0 <!-- /react-text --><!-- react-text: 654 -->VNĐ<!-- /react-text -->
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div style="margin-right: 1px; float: right; font-weight: bold; margin-bottom: 34px;">
+                                <button class="btn_add_order_product">
+                                  <span class="glyphicon glyphicon-glyphicon glyphicon-save" style="margin-right: 2px;"></span><!-- react-text: 658 -->Lưu<!-- /react-text -->
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- react-empty: 659 --><!-- react-empty: 660 -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade tdvc-modal popAll" id="popuptdvc" tabindex="-1" role="dialog" aria-labelledby="myProductModal" aria-hidden="false" style="display: none;">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" id="close_transport" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">
+                      <span class="fa fa-truck"></span><!-- react-text: 669 -->Vận chuyển<!-- /react-text -->
+                    </h4>
+                  </div>
+                  <div class="modal-body modal-info">
+                    <ul class="nav nav-pills">
+                      <li class="true">
+                        <a data-toggle="pill" href="#info11">
+                          <span class="fa fa-truck"></span><!-- react-text: 675 -->Tra Cước<!-- /react-text -->
+                        </a>
+                      </li>
+                      <li class="active">
+                        <a id="1234" data-toggle="pill" href="#create">
+                          <span class="fa fa-plus"></span><!-- react-text: 679 -->Tạo vận đơn<!-- /react-text -->
+                        </a>
+                      </li>
+                      <li class="true">
+                        <a data-toggle="pill" href="#account">
+                          <span class="fa fa-user-plus"></span><!-- react-text: 683 -->Tài khoản<!-- /react-text -->
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="tab-content">
+                      <div id="info11" class="tab-pane fade">
+                        <div class="info-customer left ng-scope">
+                          <div class="col-md-12 info-product">
+                            <div class="row">
+                              <label for="tienth">Tiền thu hộ (VNĐ)</label>
+                              <p class="form-group"><input type="text" value="0" class="form-control autoNumeric input-sm" placeholder="VNĐ" data-cleave-ignore="0,[object Object],,function (t){var n=&quot;&quot;===t.target.value?0:parseInt((0,m.convertStr2Number)(String(t.target.value)));e.setState({PriceCode:parseInt(n)})},," style="text-align: right;"></p>
+                              <span class="decs">Để trống nếu bạn không cần thu tiền hàng (VD như: khác hàng đã chuyển khoản trước tiền hàng)</span>
+                            </div>
+                            <div class="row">
+                              <label for="khoiluong">Khối lượng (Gram)</label>
+                              <p class="form-group"><input type="text" value="0" placeholder="Gram" class="form-control autoNumeric input-sm" data-cleave-ignore="0,[object Object],,function (t){var n=&quot;&quot;===t.target.value?0:parseInt((0,m.convertStr2Number)(String(t.target.value)));e.setState({Weight:parseInt(n)})},," style="text-align: right; float: left;"><span class="err_msg3">*</span></p>
+                              <span class="decs">(Tổng khối lượng các sản phẩm trong đơn hàng)</span>
+                            </div>
+                          </div>
+                          <div class="col-md-12 address">
+                            <div class="row">
+                              <div class="content-box">
+                                <h4 class="modal-title">
+                                  <span class="fa fa-map-marker"></span><!-- react-text: 704 -->Địa chỉ người gửi<!-- /react-text -->
+                                </h4>
+                                <div class="form-info has-backround">
+                                  <p>
+                                    <label for="city">Thành phố</label>
+                                    <select name="city">
+                                      <option value="-1">Chọn tỉnh thành</option>
+                                      <option value="1">TP Hà Nội</option>
+                                      <option value="2">TP Hồ Chí Minh</option>
+                                      <option value="3">TP Đà Nẵng</option>
+                                      <option value="4">Thành phố Cần Thơ</option>
+                                      <option value="5">Thành phố Hải Phòng</option>
+                                      <option value="6">Tỉnh An Giang</option>
+                                      <option value="7">Tỉnh Bà Rịa - Vũng Tàu</option>
+                                      <option value="8">Tỉnh Bắc Giang</option>
+                                      <option value="9">Tỉnh Bắc Kạn</option>
+                                      <option value="10">Tỉnh Bạc Liêu</option>
+                                      <option value="11">Tỉnh Bắc Ninh</option>
+                                      <option value="12">Tỉnh Bến Tre</option>
+                                      <option value="13">Tỉnh Bình Định</option>
+                                      <option value="14">Tỉnh Bình Dương</option>
+                                      <option value="15">Tỉnh Bình Phước</option>
+                                      <option value="16">Tỉnh Bình Thuận</option>
+                                      <option value="17">Tỉnh Cà Mau</option>
+                                      <option value="18">Tỉnh Cao Bằng</option>
+                                      <option value="19">Tỉnh Đắk Lắk</option>
+                                      <option value="20">Tỉnh Đắk Nông</option>
+                                      <option value="21">Tỉnh Điện Biên</option>
+                                      <option value="22">Tỉnh Đồng Nai</option>
+                                      <option value="23">Tỉnh Đồng Tháp</option>
+                                      <option value="24">Tỉnh Gia Lai</option>
+                                      <option value="25">Tỉnh Hà Giang</option>
+                                      <option value="26">Tỉnh Hà Nam</option>
+                                      <option value="27">Tỉnh Hà Tĩnh</option>
+                                      <option value="28">Tỉnh Hải Dương</option>
+                                      <option value="29">Tỉnh Hậu Giang</option>
+                                      <option value="30">Tỉnh Hoà Bình</option>
+                                      <option value="31">Tỉnh Hưng Yên</option>
+                                      <option value="32">Tỉnh Khánh Hòa</option>
+                                      <option value="33">Tỉnh Kiên Giang</option>
+                                      <option value="34">Tỉnh Kon Tum</option>
+                                      <option value="35">Tỉnh Lai Châu</option>
+                                      <option value="36">Tỉnh Lâm Đồng</option>
+                                      <option value="37">Tỉnh Lạng Sơn</option>
+                                      <option value="38">Tỉnh Lào Cai</option>
+                                      <option value="39">Tỉnh Long An</option>
+                                      <option value="40">Tỉnh Nam Định</option>
+                                      <option value="41">Tỉnh Nghệ An</option>
+                                      <option value="42">Tỉnh Ninh Bình</option>
+                                      <option value="43">Tỉnh Ninh Thuận</option>
+                                      <option value="44">Tỉnh Phú Thọ</option>
+                                      <option value="45">Tỉnh Phú Yên</option>
+                                      <option value="46">Tỉnh Quảng Bình</option>
+                                      <option value="47">Tỉnh Quảng Nam</option>
+                                      <option value="48">Tỉnh Quảng Ngãi</option>
+                                      <option value="49">Tỉnh Quảng Ninh</option>
+                                      <option value="50">Tỉnh Quảng Trị</option>
+                                      <option value="51">Tỉnh Sóc Trăng</option>
+                                      <option value="52">Tỉnh Sơn La</option>
+                                      <option value="53">Tỉnh Tây Ninh</option>
+                                      <option value="54">Tỉnh Thái Bình</option>
+                                      <option value="55">Tỉnh Thái Nguyên</option>
+                                      <option value="56">Tỉnh Thanh Hóa</option>
+                                      <option value="57">Tỉnh Thừa Thiên Huế</option>
+                                      <option value="58">Tỉnh Tiền Giang</option>
+                                      <option value="59">Tỉnh Trà Vinh</option>
+                                      <option value="60">Tỉnh Tuyên Quang</option>
+                                      <option value="61">Tỉnh Vĩnh Long</option>
+                                      <option value="62">Tỉnh Vĩnh Phúc</option>
+                                      <option value="63">Tỉnh Yên Bái</option>
+                                    </select>
+                                    <span class="err_msg3">*</span>
+                                  </p>
+                                  <p>
+                                    <label for="city">Quận huyện</label>
+                                    <select name="city">
+                                      <option value="-1">Chọn quận huyện</option>
+                                    </select>
+                                    <span class="err_msg3">*</span>
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="content-box">
+                                <h4 class="modal-title">
+                                  <span class="fa fa-map-marker"></span><!-- react-text: 719 -->Địa chỉ người nhận<!-- /react-text -->
+                                </h4>
+                                <div class="form-info">
+                                  <p>
+                                    <label for="city">Thành phố</label>
+                                    <select name="city">
+                                      <option value="-1">Chọn tỉnh thành</option>
+                                      <option value="1">TP Hà Nội</option>
+                                      <option value="2">TP Hồ Chí Minh</option>
+                                      <option value="3">TP Đà Nẵng</option>
+                                      <option value="4">Thành phố Cần Thơ</option>
+                                      <option value="5">Thành phố Hải Phòng</option>
+                                      <option value="6">Tỉnh An Giang</option>
+                                      <option value="7">Tỉnh Bà Rịa - Vũng Tàu</option>
+                                      <option value="8">Tỉnh Bắc Giang</option>
+                                      <option value="9">Tỉnh Bắc Kạn</option>
+                                      <option value="10">Tỉnh Bạc Liêu</option>
+                                      <option value="11">Tỉnh Bắc Ninh</option>
+                                      <option value="12">Tỉnh Bến Tre</option>
+                                      <option value="13">Tỉnh Bình Định</option>
+                                      <option value="14">Tỉnh Bình Dương</option>
+                                      <option value="15">Tỉnh Bình Phước</option>
+                                      <option value="16">Tỉnh Bình Thuận</option>
+                                      <option value="17">Tỉnh Cà Mau</option>
+                                      <option value="18">Tỉnh Cao Bằng</option>
+                                      <option value="19">Tỉnh Đắk Lắk</option>
+                                      <option value="20">Tỉnh Đắk Nông</option>
+                                      <option value="21">Tỉnh Điện Biên</option>
+                                      <option value="22">Tỉnh Đồng Nai</option>
+                                      <option value="23">Tỉnh Đồng Tháp</option>
+                                      <option value="24">Tỉnh Gia Lai</option>
+                                      <option value="25">Tỉnh Hà Giang</option>
+                                      <option value="26">Tỉnh Hà Nam</option>
+                                      <option value="27">Tỉnh Hà Tĩnh</option>
+                                      <option value="28">Tỉnh Hải Dương</option>
+                                      <option value="29">Tỉnh Hậu Giang</option>
+                                      <option value="30">Tỉnh Hoà Bình</option>
+                                      <option value="31">Tỉnh Hưng Yên</option>
+                                      <option value="32">Tỉnh Khánh Hòa</option>
+                                      <option value="33">Tỉnh Kiên Giang</option>
+                                      <option value="34">Tỉnh Kon Tum</option>
+                                      <option value="35">Tỉnh Lai Châu</option>
+                                      <option value="36">Tỉnh Lâm Đồng</option>
+                                      <option value="37">Tỉnh Lạng Sơn</option>
+                                      <option value="38">Tỉnh Lào Cai</option>
+                                      <option value="39">Tỉnh Long An</option>
+                                      <option value="40">Tỉnh Nam Định</option>
+                                      <option value="41">Tỉnh Nghệ An</option>
+                                      <option value="42">Tỉnh Ninh Bình</option>
+                                      <option value="43">Tỉnh Ninh Thuận</option>
+                                      <option value="44">Tỉnh Phú Thọ</option>
+                                      <option value="45">Tỉnh Phú Yên</option>
+                                      <option value="46">Tỉnh Quảng Bình</option>
+                                      <option value="47">Tỉnh Quảng Nam</option>
+                                      <option value="48">Tỉnh Quảng Ngãi</option>
+                                      <option value="49">Tỉnh Quảng Ninh</option>
+                                      <option value="50">Tỉnh Quảng Trị</option>
+                                      <option value="51">Tỉnh Sóc Trăng</option>
+                                      <option value="52">Tỉnh Sơn La</option>
+                                      <option value="53">Tỉnh Tây Ninh</option>
+                                      <option value="54">Tỉnh Thái Bình</option>
+                                      <option value="55">Tỉnh Thái Nguyên</option>
+                                      <option value="56">Tỉnh Thanh Hóa</option>
+                                      <option value="57">Tỉnh Thừa Thiên Huế</option>
+                                      <option value="58">Tỉnh Tiền Giang</option>
+                                      <option value="59">Tỉnh Trà Vinh</option>
+                                      <option value="60">Tỉnh Tuyên Quang</option>
+                                      <option value="61">Tỉnh Vĩnh Long</option>
+                                      <option value="62">Tỉnh Vĩnh Phúc</option>
+                                      <option value="63">Tỉnh Yên Bái</option>
+                                    </select>
+                                    <span class="err_msg3">*</span>
+                                  </p>
+                                  <p>
+                                    <label for="city">Quận huyện</label>
+                                    <select name="city">
+                                      <option value="-1">Chọn quận huyện</option>
+                                    </select>
+                                    <span class="err_msg3">*</span>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="clearfix"></div>
+                          <div class="content-button">
+                            <button type="button" class="btn btn-tc">
+                              <span class="fa fa-truck"></span><!-- react-text: 735 -->Tra cước<!-- /react-text -->
+                            </button>
+                            <button type="button" class="btn btn-tvd">
+                              <span class="fa fa-plus"></span><!-- react-text: 738 -->Tạo vận đơn<!-- /react-text -->
+                            </button>
+                          </div>
+                          <div class="separator"></div>
+                          <div class="more-info">
+                            <p>
+                              <i class="fa fa-check"></i><!-- react-text: 743 -->Tạo vận đơn và chọn hãng vận chuyển: Bưu tá sẽ tới địa chỉ người gửi để lấy hàng.<!-- /react-text -->
+                            </p>
+                            <p>
+                              <i class="fa fa-check"></i><!-- react-text: 746 -->Xem quy định gửi hàng, nhận tiền thu hộ, chính sách đền bù <!-- /react-text --><a href="#">tại đây</a>
+                            </p>
+                            <p>
+                              <i class="fa fa-check"></i><!-- react-text: 750 -->Xem bảng giá phí vận chuyển, phí thu tiền hộ, chính sách chiết khấu<!-- /react-text --><a href="#"> tại đây</a>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="create" class="tab-pane fade in active">
+                        <div class="info-customer left ng-scope">
+                          <div class="info-bill">
+                            <div class="col-lg-6">
+                              <div class="row">
+                                <label>Mã hóa đơn</label>
+                                <p class="form-group"><input type="text" disabled="" placeholder=""></p>
+                              </div>
+                              <div class="row">
+                                <label for="khoiluong">Khối lượng (Gram)</label>
+                                <p class="form-group"><input type="text" value="0" placeholder="Gram" class="form-control autoNumeric input-sm" data-cleave-ignore="0,[object Object],,function (t){var n=&quot;&quot;===t.target.value?0:parseInt((0,m.convertStr2Number)(String(t.target.value)));e.setState({Weight:parseInt(n)})},," style="text-align: right; float: left;"><span class="err_msg3">*</span></p>
+                              </div>
+                              <div class="row">
+                                <label for="tienth">Tiền thu hộ (VNĐ)</label>
+                                <p class="form-group"><input type="text" value="0" placeholder="VNĐ" class="form-control autoNumeric input-sm" data-cleave-ignore="0,[object Object],,function (t){var n=&quot;&quot;===t.target.value?0:parseInt((0,m.convertStr2Number)(String(t.target.value)));e.setState({PriceCode:parseInt(n)})},," style="text-align: right;"></p>
+                              </div>
+                              <div class="row"><input type="checkbox" value="true"><span>Cho khách xem hàng trước khi nhận</span></div>
+                            </div>
+                            <div class="col-lg-6 right-content">
+                              <div class="row">
+                                <label for="chiuphi">Người chịu phí</label>
+                                <p class="form-group text-left">
+                                  <select name="city" id="Who_price_ship">
+                                    <option value="1">Người gửi</option>
+                                    <option value="0">Người nhận</option>
+                                    <option value="2">Cả hai bên</option>
+                                  </select>
+                                  <span class="err_msg3">*</span>
+                                </p>
+                              </div>
+                              <div class="row">
+                                <label for="ghichu">Ghi chú</label>
+                                <p class="form-group text-left"><textarea name="ghichu" id="Note_tran" placeholder="Mô tả gói hàng"></textarea></p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 address">
+                            <div class="row">
+                              <div class="content-box">
+                                <h4 class="modal-title">
+                                  <span class="fa fa-map-marker"></span><!-- react-text: 790 -->Địa chỉ người gửi<!-- /react-text -->
+                                </h4>
+                                <div class="form-info has-backround">
+                                  <p><label for="name">Họ và tên</label><input type="text" id="Name_from"><span class="err_msg3">*</span></p>
+                                  <p><label for="phone">Số điện thoại</label><input type="number" id="Phone_from"><span class="err_msg3">*</span></p>
+                                  <p><label for="add">Địa chỉ</label><input type="text" id="Address_from" placeholder="Số nhà, ngõ ngách, thôn xóm"><span class="err_msg3">*</span></p>
+                                  <p>
+                                    <label for="city">Thành phố</label>
+                                    <select name="city" id="CityId_from">
+                                      <option value="-1">Chọn tỉnh thành</option>
+                                      <option value="1">TP Hà Nội</option>
+                                      <option value="2">TP Hồ Chí Minh</option>
+                                      <option value="3">TP Đà Nẵng</option>
+                                      <option value="4">Thành phố Cần Thơ</option>
+                                      <option value="5">Thành phố Hải Phòng</option>
+                                      <option value="6">Tỉnh An Giang</option>
+                                      <option value="7">Tỉnh Bà Rịa - Vũng Tàu</option>
+                                      <option value="8">Tỉnh Bắc Giang</option>
+                                      <option value="9">Tỉnh Bắc Kạn</option>
+                                      <option value="10">Tỉnh Bạc Liêu</option>
+                                      <option value="11">Tỉnh Bắc Ninh</option>
+                                      <option value="12">Tỉnh Bến Tre</option>
+                                      <option value="13">Tỉnh Bình Định</option>
+                                      <option value="14">Tỉnh Bình Dương</option>
+                                      <option value="15">Tỉnh Bình Phước</option>
+                                      <option value="16">Tỉnh Bình Thuận</option>
+                                      <option value="17">Tỉnh Cà Mau</option>
+                                      <option value="18">Tỉnh Cao Bằng</option>
+                                      <option value="19">Tỉnh Đắk Lắk</option>
+                                      <option value="20">Tỉnh Đắk Nông</option>
+                                      <option value="21">Tỉnh Điện Biên</option>
+                                      <option value="22">Tỉnh Đồng Nai</option>
+                                      <option value="23">Tỉnh Đồng Tháp</option>
+                                      <option value="24">Tỉnh Gia Lai</option>
+                                      <option value="25">Tỉnh Hà Giang</option>
+                                      <option value="26">Tỉnh Hà Nam</option>
+                                      <option value="27">Tỉnh Hà Tĩnh</option>
+                                      <option value="28">Tỉnh Hải Dương</option>
+                                      <option value="29">Tỉnh Hậu Giang</option>
+                                      <option value="30">Tỉnh Hoà Bình</option>
+                                      <option value="31">Tỉnh Hưng Yên</option>
+                                      <option value="32">Tỉnh Khánh Hòa</option>
+                                      <option value="33">Tỉnh Kiên Giang</option>
+                                      <option value="34">Tỉnh Kon Tum</option>
+                                      <option value="35">Tỉnh Lai Châu</option>
+                                      <option value="36">Tỉnh Lâm Đồng</option>
+                                      <option value="37">Tỉnh Lạng Sơn</option>
+                                      <option value="38">Tỉnh Lào Cai</option>
+                                      <option value="39">Tỉnh Long An</option>
+                                      <option value="40">Tỉnh Nam Định</option>
+                                      <option value="41">Tỉnh Nghệ An</option>
+                                      <option value="42">Tỉnh Ninh Bình</option>
+                                      <option value="43">Tỉnh Ninh Thuận</option>
+                                      <option value="44">Tỉnh Phú Thọ</option>
+                                      <option value="45">Tỉnh Phú Yên</option>
+                                      <option value="46">Tỉnh Quảng Bình</option>
+                                      <option value="47">Tỉnh Quảng Nam</option>
+                                      <option value="48">Tỉnh Quảng Ngãi</option>
+                                      <option value="49">Tỉnh Quảng Ninh</option>
+                                      <option value="50">Tỉnh Quảng Trị</option>
+                                      <option value="51">Tỉnh Sóc Trăng</option>
+                                      <option value="52">Tỉnh Sơn La</option>
+                                      <option value="53">Tỉnh Tây Ninh</option>
+                                      <option value="54">Tỉnh Thái Bình</option>
+                                      <option value="55">Tỉnh Thái Nguyên</option>
+                                      <option value="56">Tỉnh Thanh Hóa</option>
+                                      <option value="57">Tỉnh Thừa Thiên Huế</option>
+                                      <option value="58">Tỉnh Tiền Giang</option>
+                                      <option value="59">Tỉnh Trà Vinh</option>
+                                      <option value="60">Tỉnh Tuyên Quang</option>
+                                      <option value="61">Tỉnh Vĩnh Long</option>
+                                      <option value="62">Tỉnh Vĩnh Phúc</option>
+                                      <option value="63">Tỉnh Yên Bái</option>
+                                    </select>
+                                    <span class="err_msg3">*</span>
+                                  </p>
+                                  <p>
+                                    <label for="city">Quận huyện</label>
+                                    <select name="city" id="DistrictId_from">
+                                      <option value="-1">Chọn quận huyện</option>
+                                    </select>
+                                    <span class="err_msg3">*</span>
+                                  </p>
+                                  <p>
+                                    <label for="city">Phường xã</label>
+                                    <select name="city" id="WardId_from">
+                                      <option value="-1">Chọn phường xã</option>
+                                    </select>
+                                    <span class="err_msg3">*</span>
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="content-box">
+                                <h4 class="modal-title">
+                                  <span class="fa fa-map-marker"></span><!-- react-text: 822 -->Địa chỉ người nhận<!-- /react-text -->
+                                </h4>
+                                <div class="form-info">
+                                  <p><label for="name">Họ và tên</label><input type="text" id="Name_to"><span class="err_msg3">*</span></p>
+                                  <p><label for="phone">Số điện thoại</label><input type="number" id="Phone_to"><span class="err_msg3">*</span></p>
+                                  <p><label for="add">Địa chỉ</label><input type="text" id="Address_to" placeholder="Số nhà, ngõ ngách, thôn xóm"><span class="err_msg3">*</span></p>
+                                  <p>
+                                    <label for="city">Thành phố</label>
+                                    <select name="city" id="CityId_to">
+                                      <option value="-1">Chọn tỉnh thành</option>
+                                      <option value="1">TP Hà Nội</option>
+                                      <option value="2">TP Hồ Chí Minh</option>
+                                      <option value="3">TP Đà Nẵng</option>
+                                      <option value="4">Thành phố Cần Thơ</option>
+                                      <option value="5">Thành phố Hải Phòng</option>
+                                      <option value="6">Tỉnh An Giang</option>
+                                      <option value="7">Tỉnh Bà Rịa - Vũng Tàu</option>
+                                      <option value="8">Tỉnh Bắc Giang</option>
+                                      <option value="9">Tỉnh Bắc Kạn</option>
+                                      <option value="10">Tỉnh Bạc Liêu</option>
+                                      <option value="11">Tỉnh Bắc Ninh</option>
+                                      <option value="12">Tỉnh Bến Tre</option>
+                                      <option value="13">Tỉnh Bình Định</option>
+                                      <option value="14">Tỉnh Bình Dương</option>
+                                      <option value="15">Tỉnh Bình Phước</option>
+                                      <option value="16">Tỉnh Bình Thuận</option>
+                                      <option value="17">Tỉnh Cà Mau</option>
+                                      <option value="18">Tỉnh Cao Bằng</option>
+                                      <option value="19">Tỉnh Đắk Lắk</option>
+                                      <option value="20">Tỉnh Đắk Nông</option>
+                                      <option value="21">Tỉnh Điện Biên</option>
+                                      <option value="22">Tỉnh Đồng Nai</option>
+                                      <option value="23">Tỉnh Đồng Tháp</option>
+                                      <option value="24">Tỉnh Gia Lai</option>
+                                      <option value="25">Tỉnh Hà Giang</option>
+                                      <option value="26">Tỉnh Hà Nam</option>
+                                      <option value="27">Tỉnh Hà Tĩnh</option>
+                                      <option value="28">Tỉnh Hải Dương</option>
+                                      <option value="29">Tỉnh Hậu Giang</option>
+                                      <option value="30">Tỉnh Hoà Bình</option>
+                                      <option value="31">Tỉnh Hưng Yên</option>
+                                      <option value="32">Tỉnh Khánh Hòa</option>
+                                      <option value="33">Tỉnh Kiên Giang</option>
+                                      <option value="34">Tỉnh Kon Tum</option>
+                                      <option value="35">Tỉnh Lai Châu</option>
+                                      <option value="36">Tỉnh Lâm Đồng</option>
+                                      <option value="37">Tỉnh Lạng Sơn</option>
+                                      <option value="38">Tỉnh Lào Cai</option>
+                                      <option value="39">Tỉnh Long An</option>
+                                      <option value="40">Tỉnh Nam Định</option>
+                                      <option value="41">Tỉnh Nghệ An</option>
+                                      <option value="42">Tỉnh Ninh Bình</option>
+                                      <option value="43">Tỉnh Ninh Thuận</option>
+                                      <option value="44">Tỉnh Phú Thọ</option>
+                                      <option value="45">Tỉnh Phú Yên</option>
+                                      <option value="46">Tỉnh Quảng Bình</option>
+                                      <option value="47">Tỉnh Quảng Nam</option>
+                                      <option value="48">Tỉnh Quảng Ngãi</option>
+                                      <option value="49">Tỉnh Quảng Ninh</option>
+                                      <option value="50">Tỉnh Quảng Trị</option>
+                                      <option value="51">Tỉnh Sóc Trăng</option>
+                                      <option value="52">Tỉnh Sơn La</option>
+                                      <option value="53">Tỉnh Tây Ninh</option>
+                                      <option value="54">Tỉnh Thái Bình</option>
+                                      <option value="55">Tỉnh Thái Nguyên</option>
+                                      <option value="56">Tỉnh Thanh Hóa</option>
+                                      <option value="57">Tỉnh Thừa Thiên Huế</option>
+                                      <option value="58">Tỉnh Tiền Giang</option>
+                                      <option value="59">Tỉnh Trà Vinh</option>
+                                      <option value="60">Tỉnh Tuyên Quang</option>
+                                      <option value="61">Tỉnh Vĩnh Long</option>
+                                      <option value="62">Tỉnh Vĩnh Phúc</option>
+                                      <option value="63">Tỉnh Yên Bái</option>
+                                    </select>
+                                    <span class="err_msg3">*</span>
+                                  </p>
+                                  <p>
+                                    <label for="city">Quận huyện</label>
+                                    <select name="city" id="DistrictId_to">
+                                      <option value="-1">Chọn quận huyện</option>
+                                    </select>
+                                    <span class="err_msg3">*</span>
+                                  </p>
+                                  <p>
+                                    <label for="city">Phường xã</label>
+                                    <select name="city" id="WardId_to">
+                                      <option value="-1">Chọn phường xã</option>
+                                    </select>
+                                    <span class="err_msg3">*</span>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="clearfix"></div>
+                          <div class="content-button" style="margin-bottom: 0px;">
+                            <button type="button" id="TraCuoc123" class="btn btn-tc">
+                              <span class="fa fa-truck"></span><!-- react-text: 855 -->Tra cước<!-- /react-text -->
+                            </button>
+                          </div>
+                          <div class="clearfix"></div>
+                          <div class="content-button">
+                            <button type="button" class="btn btn-default" id="cancel_order" data-dismiss="modal" aria-label="Close">
+                              <span class="fa fa-ban"></span><!-- react-text: 860 -->Hủy<!-- /react-text -->
+                            </button>
+                            <button type="button" class="btn btn-tvd">
+                              <a href="https://fb.sale/login.html?hash=8B12ifZg%2FWD8UuUnQ0RZw76vcHfUNwJ6vX6sNUaj%2BnwsfRQ7Bafa7M3apCbVTphFxxXsGT7xflUlsfpp0hKunw1G3OCxKHkyOeefgusJnec5M6WBf5SB%2FCjvOjjIxl3ep%2FiR15RhEGAPvRbuqETcEHoIaxRlhwRhQa3OhdE6qy9yjbAX47rlGx6viyeXVDeNsYV9bvI%2BPoT8B8OCVqIoeV1wbMliyKE1Zb8dy0g1wmKxeUZQwsHW0W9U7NO7LLaH5qfL4CQ318KyZkWANtrenR5JlBjFKV4UCl5B54rPab5ZHjHSQk8QzrGDBdZxWbuUrfT0lbkneKrZEDycth8gxTGtervsOE%2BulKbvAWvWEHQVHYdGla4CMcDwixdwHguokfdb5Ik9XgUcvLc92EmHK2FHsu%2BCKgtzG%2FWqZWQ7XFiM4l3qfNudWgm94seFZ7ZV01fxc6zjpKf0WfArR%2FqQZlrw04di37imUz7XcalkBfk18EO0CkH4R%2Bv0LktbqRMJuwvbEH1E8jVKid1V9pykdh2jE9v3JW%2FWIhvbkz38yxpOpKkhTgbDMq8kD1va7adY&amp;type=1">
+                                <span class="fa fa-database"></span><!-- react-text: 864 -->Đến trang quản lý vận đơn<!-- /react-text -->
+                              </a>
+                            </button>
+                            <button type="button" class="btn btn-tc">
+                              <span class="fa fa-save"></span><!-- react-text: 867 -->Lưu &amp; thêm mới<!-- /react-text -->
+                            </button>
+                          </div>
+                          <div class="separator"></div>
+                          <div class="more-info">
+                            <p>
+                              <i class="fa fa-check"></i><!-- react-text: 872 -->Đơn hàng mới được tạo chưa được gửi ngay sang hãng vận chuyển, bạn vui lòng sang trang quản lý vận đơn và click vào nút gửi hàng để hãng vận chuyển tiếp nhận thông tin đơn hàng.<!-- /react-text -->
+                            </p>
+                            <p>
+                              <i class="fa fa-check"></i><!-- react-text: 875 -->Xem quy định gửi hàng, nhận tiền thu hộ <!-- /react-text --><a href="#">tại đây</a>
+                            </p>
+                            <p>
+                              <i class="fa fa-check"></i><!-- react-text: 879 -->Nếu bạn muốn dùng các tính năng như báo cáo sản phẩm, báo cáo chi tiết về doanh thu, tỉ lệ đơn hàng thanh công, quản lý nhân viên CSKH, nhân viên vận chuyển, quản lý tồn kho, xuất nhập kho, khách hàng, kế toán, công nợ, thu chi... Xin vui lòng liên hệ hotline của fb.sale để được tư vấn hỗ trợ về các gói phần mềm quản lý bán hàng cao cấp hơn.<!-- /react-text -->
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="account" class="tab-pane fade" style="height: 500px;">
+                        <p class="note">
+                          <strong>Thông báo:</strong><!-- react-text: 883 --> "Bạn chưa có tài khoản nào<!-- /react-text -->
+                        </p>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- react-empty: 885 --><!-- react-empty: 886 -->
+            </div>
+            <button type="button" id="libraryImage" data-toggle="modal" data-target="#libraryImage1" style="display: none;"></button>
+            <div class="modal fade tdvc-modal popAll" id="libraryImage1" tabindex="-1" role="dialog" aria-labelledby="myProductModal1" aria-hidden="false" style="display: none;">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" id="close_transport" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">
+                      <span class="fa fa-picture-o"></span><!-- react-text: 896 -->Thư viện ảnh<!-- /react-text -->
+                    </h4>
+                  </div>
+                  <div class="modal-body modal-info" style="padding-top: 8px;">
+                    <ul class="nav nav-pills">
+                      <li class="true">
+                        <a id="12345" data-toggle="pill" href="#create1">
+                          <span class="fa fa-bookmark"></span><!-- react-text: 902 -->Ảnh hay dùng<!-- /react-text -->
+                        </a>
+                      </li>
+                      <li class="active">
+                        <a data-toggle="pill" href="#account2">
+                          <span class="fa fa-folder"></span><!-- react-text: 906 -->Ảnh khác<!-- /react-text -->
+                        </a>
+                      </li>
+                      <li class="Upload_Img">
+                        <div><input type="file" class="Input_Img" accept="image/*" multiple=""><button class="btn btn-info btn-sm" style="background-color: rgb(65, 103, 178); border-color: rgb(65, 103, 178);">Upload</button></div>
+                      </li>
+                    </ul>
+                    <div class="tab-content" style="padding: 0px;">
+                      <div id="create1" class="tab-pane fade" style="min-height: 450px; border-width: 0px 1px 1px; border-top-style: initial; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: initial; border-right-color: rgb(229, 229, 230); border-bottom-color: rgb(229, 229, 230); border-left-color: rgb(229, 229, 230); border-image: initial; overflow: auto; max-height: 470px;">
+                        <div>
+                          <p style="margin-top: 20px; margin-left: 10px;">Chưa có ảnh nào</p>
+                        </div>
+                      </div>
+                      <div id="account2" class="tab-pane fade in active" style="min-height: 450px; border-width: 0px 1px 1px; border-top-style: initial; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: initial; border-right-color: rgb(229, 229, 230); border-bottom-color: rgb(229, 229, 230); border-left-color: rgb(229, 229, 230); border-image: initial; overflow: auto; max-height: 470px;">
+                        <div>
+                          <p style="margin-top: 20px; margin-left: 10px;">Chưa có ảnh nào được tải lên</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <script src="../dist/js/jquery.js"></script>
+    <script src="js/script.js"></script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
